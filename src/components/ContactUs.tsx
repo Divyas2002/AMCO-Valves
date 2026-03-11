@@ -43,7 +43,7 @@ export function ContactUs() {
                 </div>
                 <div>
                   <h4 className="font-bold text-primary mb-1">Our Headquarters</h4>
-                  <p className="text-foreground/60 text-sm">Industrial Hub 4, Plot 12B, Engineering District, NY 10012</p>
+                  <p className="text-foreground/60 text-sm">Industrial Hub 4, Plot 12B, Engineering District, Chennai, India</p>
                 </div>
               </div>
               <div className="flex gap-6">
@@ -51,8 +51,8 @@ export function ContactUs() {
                   <Phone size={24} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-primary mb-1">Phone Numbers</h4>
-                  <p className="text-foreground/60 text-sm">+1 (555) 012-3456 | +1 (555) 789-0123</p>
+                  <h4 className="font-bold text-primary mb-1">Phone Number</h4>
+                  <p className="text-foreground/60 text-sm">+91 98411 14671</p>
                 </div>
               </div>
               <div className="flex gap-6">
@@ -60,8 +60,8 @@ export function ContactUs() {
                   <Mail size={24} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-primary mb-1">Email Addresses</h4>
-                  <p className="text-foreground/60 text-sm">info@amcovalves.com | sales@amcovalves.com</p>
+                  <h4 className="font-bold text-primary mb-1">Email Address</h4>
+                  <p className="text-foreground/60 text-sm">contact@amcovalves.com</p>
                 </div>
               </div>
               <div className="flex gap-6">
@@ -70,7 +70,7 @@ export function ContactUs() {
                 </div>
                 <div>
                   <h4 className="font-bold text-primary mb-1">Working Hours</h4>
-                  <p className="text-foreground/60 text-sm">Mon - Fri: 9:00 AM - 6:00 PM (EST)</p>
+                  <p className="text-foreground/60 text-sm">Mon - Fri: 9:00 AM - 6:00 PM (IST)</p>
                 </div>
               </div>
             </div>
@@ -91,7 +91,7 @@ export function ContactUs() {
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-primary">Phone Number</label>
-                <Input required placeholder="+1 (555) 000-0000" className="bg-background border-none h-12 focus-visible:ring-secondary" />
+                <Input required placeholder="+91 00000 00000" className="bg-background border-none h-12 focus-visible:ring-secondary" />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-primary">Your Message</label>
