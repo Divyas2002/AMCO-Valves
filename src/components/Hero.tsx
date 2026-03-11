@@ -42,7 +42,7 @@ export function Hero() {
                 Explore Catalog <ArrowRight className="ml-2" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg" className="h-14 px-8 text-lg text-white border-white hover:bg-white hover:text-primary transition-all" asChild>
+            <Button variant="outline" size="lg" className="h-14 px-8 text-lg text-primary bg-background border-white hover:bg-white hover:text-secondary transition-all" asChild>
               <Link href="#about">Learn More</Link>
             </Button>
           </div>
