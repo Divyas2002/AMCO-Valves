@@ -9,19 +9,19 @@
     {
       "id": "product-1pc",
       "description": "1 Piece Ball Valve",
-      "imageUrl": "https://picsum.photos/seed/amco-1pc/600/600",
+      "imageUrl": "/valve-1piece.jpg",
       "imageHint": "ball valve"
     },
     {
       "id": "product-2pc",
       "description": "2 Piece Ball Valve",
-      "imageUrl": "https://picsum.photos/seed/amco-2pc/600/600",
+      "imageUrl": "/valve-2piece.jpg",
       "imageHint": "steel valve"
     },
     {
       "id": "product-3pc",
       "description": "3 Piece Ball Valve",
-      "imageUrl": "https://picsum.photos/seed/amco-3pc/600/600",
+      "imageUrl": "/valve-3.jpg",
       "imageHint": "flanged valve"
     },
     {

@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -35,7 +36,7 @@ export function Products() {
     <section id="products" className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-primary font-bold text-sm uppercase tracking-widest mb-3">Product Portfolio</h2>
+          <h2 className="text-secondary font-bold text-sm uppercase tracking-widest mb-3">Product Portfolio</h2>
           <h3 className="text-3xl md:text-5xl font-bold text-primary mb-6">Our Valve Solutions</h3>
           <p className="text-foreground/70">
             We specialize in a comprehensive range of Ball Valves designed to meet the most demanding industrial requirements.
@@ -44,8 +45,8 @@ export function Products() {
 
         <div className="grid lg:grid-cols-3 gap-8 mb-20">
           {products.map((product) => (
-            <Card key={product.id} className="overflow-hidden group hover:shadow-2xl transition-all duration-500 border-none bg-white">
-              <div className="relative h-64 overflow-hidden">
+            <Card key={product.id} className="overflow-hidden group hover:shadow-2xl transition-all duration-500 border-none bg-white rounded-[2rem]">
+              <div className="relative h-72 overflow-hidden bg-muted">
                 {product.image && (
                   <Image
                     src={product.image.imageUrl}
@@ -56,18 +57,18 @@ export function Products() {
                   />
                 )}
                 <div className="absolute top-4 left-4">
-                  <Badge variant="secondary" className="px-3 py-1 font-bold">BALL VALVE</Badge>
+                  <Badge variant="secondary" className="px-4 py-1.5 font-bold uppercase tracking-wider text-[10px]">Premium Grade</Badge>
                 </div>
               </div>
-              <CardHeader>
+              <CardHeader className="pb-2">
                 <CardTitle className="text-2xl font-bold text-primary">{product.title}</CardTitle>
-                <p className="text-secondary font-medium text-sm">{product.specs}</p>
+                <p className="text-secondary font-semibold text-sm">{product.specs}</p>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
                   {product.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-2 text-foreground/70 text-sm">
-                      <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                    <li key={i} className="flex items-center gap-3 text-foreground/70 text-sm">
+                      <div className="w-1.5 h-1.5 rounded-full bg-secondary shrink-0" />
                       {feature}
                     </li>
                   ))}
@@ -78,22 +79,22 @@ export function Products() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-primary p-8 rounded-3xl text-white flex flex-col gap-4">
+          <div className="bg-primary p-8 rounded-[2rem] text-white flex flex-col gap-4 shadow-lg">
             <Maximize size={32} className="text-secondary" />
             <h4 className="text-lg font-bold">Configurations</h4>
             <p className="text-white/60 text-sm">1 Pc, 2 Pc, 3 Pc Designs</p>
           </div>
-          <div className="bg-white p-8 rounded-3xl text-primary border border-border flex flex-col gap-4">
+          <div className="bg-white p-8 rounded-[2rem] text-primary border border-border flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
             <Layers size={32} className="text-secondary" />
             <h4 className="text-lg font-bold">Connections</h4>
             <p className="text-foreground/60 text-sm">Screwed, Socket Weld, Butt Weld, Flanged</p>
           </div>
-          <div className="bg-white p-8 rounded-3xl text-primary border border-border flex flex-col gap-4">
+          <div className="bg-white p-8 rounded-[2rem] text-primary border border-border flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
             <Settings size={32} className="text-secondary" />
             <h4 className="text-lg font-bold">Seat Types</h4>
             <p className="text-foreground/60 text-sm">Soft & Metal Seat Options</p>
           </div>
-          <div className="bg-white p-8 rounded-3xl text-primary border border-border flex flex-col gap-4">
+          <div className="bg-white p-8 rounded-[2rem] text-primary border border-border flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
             <Gauge size={32} className="text-secondary" />
             <h4 className="text-lg font-bold">Mounting</h4>
             <p className="text-foreground/60 text-sm">Floating & Trunnion Mounted</p>
