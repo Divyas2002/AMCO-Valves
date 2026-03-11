@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Settings2, Linkedin, Twitter, Facebook } from "lucide-react";
+import Image from "next/image";
+import { Linkedin, Twitter, Facebook } from "lucide-react";
 
 export function Footer() {
   return (
@@ -7,9 +8,14 @@ export function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 bg-secondary rounded flex items-center justify-center">
-                <Settings2 size={20} />
+            <Link href="/" className="flex items-center gap-3 mb-6">
+              <div className="relative w-10 h-10">
+                <Image
+                  src="/amco-logo.jpg"
+                  alt="AMCO Valves Logo"
+                  fill
+                  className="object-contain"
+                />
               </div>
               <span className="text-xl font-bold tracking-tight">AMCO <span className="text-secondary">Valves</span></span>
             </Link>

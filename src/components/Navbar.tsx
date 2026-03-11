@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Settings2 } from "lucide-react";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
@@ -34,9 +35,15 @@ export function Navbar() {
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center text-white transition-transform group-hover:rotate-12">
-            <Settings2 size={24} />
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="relative w-10 h-10 transition-transform group-hover:scale-110">
+            <Image
+              src="/amco-logo.jpg"
+              alt="AMCO Valves Logo"
+              fill
+              className="object-contain"
+              priority
+            />
           </div>
           <span className={cn(
             "text-2xl font-bold tracking-tight transition-colors",

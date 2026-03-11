@@ -52,7 +52,7 @@ export function ContactUs() {
                 </div>
                 <div>
                   <h4 className="font-bold text-primary mb-1">Phone Numbers</h4>
-                  <p className="text-foreground/60 text-sm">+1 (555) 123-4567 | +1 (555) 987-6543</p>
+                  <p className="text-foreground/60 text-sm">+1 (555) 012-3456 | +1 (555) 789-0123</p>
                 </div>
               </div>
               <div className="flex gap-6">
@@ -61,7 +61,7 @@ export function ContactUs() {
                 </div>
                 <div>
                   <h4 className="font-bold text-primary mb-1">Email Addresses</h4>
-                  <p className="text-foreground/60 text-sm">sales@amcovalves.com | support@amcovalves.com</p>
+                  <p className="text-foreground/60 text-sm">info@amcovalves.com | sales@amcovalves.com</p>
                 </div>
               </div>
               <div className="flex gap-6">
