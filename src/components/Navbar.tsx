@@ -31,12 +31,12 @@ export function Navbar() {
     <nav
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300 px-6 py-4",
-        scrolled ? "bg-primary shadow-lg py-3" : "bg-transparent"
+        scrolled ? "bg-primary shadow-lg py-2" : "bg-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center group">
-          <div className="relative w-12 h-12 transition-transform group-hover:scale-110">
+          <div className="relative w-20 h-20 transition-transform group-hover:scale-105">
             <Image
               src="/amco-logo.jpg"
               alt="AMCO Valves Logo"
