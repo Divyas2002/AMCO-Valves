@@ -25,6 +25,18 @@
       "imageHint": "flanged valve"
     },
     {
+      "id": "cert-industrial-1",
+      "description": "Industrial plant ISO certification",
+      "imageUrl": "https://picsum.photos/seed/amco-cert-ind1/800/600",
+      "imageHint": "factory iso"
+    },
+    {
+      "id": "cert-industrial-2",
+      "description": "Manufacturing quality control",
+      "imageUrl": "https://picsum.photos/seed/amco-cert-ind2/800/600",
+      "imageHint": "quality control"
+    },
+    {
       "id": "cert-iso",
       "description": "ISO Certification Logo",
       "imageUrl": "https://picsum.photos/seed/amco-cert1/200/200",
