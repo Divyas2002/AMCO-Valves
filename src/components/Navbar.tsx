@@ -35,8 +35,8 @@ export function Navbar() {
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-10 h-10 transition-transform group-hover:scale-110">
+        <Link href="/" className="flex items-center group">
+          <div className="relative w-12 h-12 transition-transform group-hover:scale-110">
             <Image
               src="/amco-logo.jpg"
               alt="AMCO Valves Logo"
@@ -45,12 +45,6 @@ export function Navbar() {
               priority
             />
           </div>
-          <span className={cn(
-            "text-2xl font-bold tracking-tight transition-colors",
-            scrolled ? "text-white" : "text-primary"
-          )}>
-            AMCO <span className="text-secondary">Valves</span>
-          </span>
         </Link>
 
         {/* Desktop Nav */}

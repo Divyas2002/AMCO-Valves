@@ -8,8 +8,8 @@ export function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-2">
-            <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className="relative w-10 h-10">
+            <Link href="/" className="flex items-center mb-6">
+              <div className="relative w-16 h-16">
                 <Image
                   src="/amco-logo.jpg"
                   alt="AMCO Valves Logo"
@@ -17,7 +17,6 @@ export function Footer() {
                   className="object-contain"
                 />
               </div>
-              <span className="text-xl font-bold tracking-tight">AMCO <span className="text-secondary">Valves</span></span>
             </Link>
             <p className="text-white/60 max-w-sm mb-6">
               Precision engineered valve solutions for the global energy and industrial sectors. Quality and reliability at the core of everything we do.
