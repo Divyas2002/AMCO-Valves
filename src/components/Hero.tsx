@@ -42,32 +42,32 @@ export function Hero() {
                 Explore Catalog <ArrowRight className="ml-2" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg" className="h-14 px-8 text-lg text-primary bg-background border-white hover:bg-white hover:text-secondary transition-all" asChild>
+            <Button variant="outline" size="lg" className="h-14 px-8 text-lg bg-white border-white text-[hsl(222,74%,14%)] hover:bg-white hover:text-[hsl(17,88%,54%)] transition-all" asChild>
               <Link href="#about">Learn More</Link>
             </Button>
           </div>
 
-          <div className="grid grid-cols-3 gap-8 mt-16 pt-12 border-t border-white/10">
-            <div>
-              <div className="text-white font-bold text-2xl flex items-center gap-2">
-                <Factory className="text-secondary" size={24} />
-                25+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-16 pt-12 border-t border-white/10">
+            <div className="flex flex-col gap-1">
+              <div className="text-white font-bold text-3xl flex items-center gap-3">
+                <Factory className="text-secondary shrink-0" size={28} />
+                <span>25+</span>
               </div>
-              <p className="text-white/60 text-sm">Years Experience</p>
+              <p className="text-white/60 text-sm font-medium">Years Experience</p>
             </div>
-            <div>
-              <div className="text-white font-bold text-2xl flex items-center gap-2">
-                <ShieldCheck className="text-secondary" size={24} />
-                100%
+            <div className="flex flex-col gap-1">
+              <div className="text-white font-bold text-3xl flex items-center gap-3">
+                <ShieldCheck className="text-secondary shrink-0" size={28} />
+                <span>100%</span>
               </div>
-              <p className="text-white/60 text-sm">Quality Testing</p>
+              <p className="text-white/60 text-sm font-medium">Quality Testing</p>
             </div>
-            <div>
-              <div className="text-white font-bold text-2xl flex items-center gap-2">
-                <Zap className="text-secondary" size={24} />
-                500+
+            <div className="flex flex-col gap-1">
+              <div className="text-white font-bold text-3xl flex items-center gap-3">
+                <Zap className="text-secondary shrink-0" size={28} />
+                <span>500+</span>
               </div>
-              <p className="text-white/60 text-sm">Global Projects</p>
+              <p className="text-white/60 text-sm font-medium">Global Projects</p>
             </div>
           </div>
         </div>
