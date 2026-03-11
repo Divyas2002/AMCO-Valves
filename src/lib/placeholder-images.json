@@ -37,6 +37,12 @@
       "imageHint": "quality control"
     },
     {
+      "id": "certification-main",
+      "description": "AMCO Valves Official Certification",
+      "imageUrl": "/certification.jpg",
+      "imageHint": "certification document"
+    },
+    {
       "id": "cert-iso",
       "description": "ISO Certification Logo",
       "imageUrl": "https://picsum.photos/seed/amco-cert1/200/200",

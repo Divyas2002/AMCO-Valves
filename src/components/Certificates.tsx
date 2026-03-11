@@ -3,8 +3,7 @@ import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export function Certificates() {
-  const certImg1 = PlaceHolderImages.find(img => img.id === "cert-industrial-1");
-  const certImg2 = PlaceHolderImages.find(img => img.id === "cert-industrial-2");
+  const certImg = PlaceHolderImages.find(img => img.id === "certification-main");
 
   return (
     <section id="certificates" className="py-24 bg-white">
@@ -39,24 +38,24 @@ export function Certificates() {
 
           <div className="relative flex items-center justify-end gap-6">
             <div className="relative w-full max-w-[400px] aspect-[1.4/1] rounded-[2.5rem] overflow-hidden shadow-2xl transition-transform hover:scale-[1.02] duration-500">
-              {certImg1 && (
+              {certImg && (
                 <Image
-                  src={certImg1.imageUrl}
-                  alt={certImg1.description}
+                  src={certImg.imageUrl}
+                  alt={certImg.description}
                   fill
                   className="object-cover"
-                  data-ai-hint={certImg1.imageHint}
+                  data-ai-hint={certImg.imageHint}
                 />
               )}
             </div>
-            <div className="relative w-full max-w-[300px] aspect-[1.2/1] rounded-[2rem] overflow-hidden shadow-xl transition-transform hover:scale-[1.05] duration-500 -mt-12 hidden md:block">
-              {certImg2 && (
+            <div className="relative w-full max-w-[300px] aspect-[1.2/1] rounded-[2rem] overflow-hidden shadow-xl transition-transform hover:scale-[1.05] duration-500 -mt-12 hidden md:block border-4 border-white">
+              {certImg && (
                 <Image
-                  src={certImg2.imageUrl}
-                  alt={certImg2.description}
+                  src={certImg.imageUrl}
+                  alt={certImg.description}
                   fill
                   className="object-cover"
-                  data-ai-hint={certImg2.imageHint}
+                  data-ai-hint={certImg.imageHint}
                 />
               )}
             </div>
