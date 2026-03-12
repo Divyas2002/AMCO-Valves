@@ -136,6 +136,11 @@ export function Products() {
             opts={{
               align: "start",
               loop: true,
+              slidesToScroll: 1,
+              breakpoints: {
+                '(min-width: 1024px)': { slidesToScroll: 4 },
+                '(min-width: 768px)': { slidesToScroll: 2 },
+              }
             }}
             className="w-full"
           >
@@ -143,7 +148,6 @@ export function Products() {
               {productData.map((product) => (
                 <CarouselItem key={product.id} className="pl-4 md:basis-1/2 lg:basis-1/4">
                   <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 border-none bg-white rounded-[2rem] flex flex-col">
-                    {/* Replaced static image with inner slider */}
                     <ProductImageSlider productId={product.id} title={product.title} />
                     
                     <CardHeader className="pb-2">
@@ -166,7 +170,7 @@ export function Products() {
             </CarouselContent>
           </Carousel>
 
-          {/* Dotted Navigation for the main products carousel */}
+          {/* Grouped Dotted Navigation */}
           <div className="flex justify-center gap-2 mt-8">
             {Array.from({ length: count }).map((_, i) => (
               <button
@@ -178,7 +182,7 @@ export function Products() {
                     ? "bg-secondary w-8" 
                     : "bg-secondary/20 hover:bg-secondary/40"
                 )}
-                aria-label={`Go to slide ${i + 1}`}
+                aria-label={`Go to group ${i + 1}`}
               />
             ))}
           </div>
