@@ -10,7 +10,7 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-2">
             <Link href="/" className="flex items-center mb-6">
-              <div className="relative w-40 h-40">
+              <div className="relative w-36 h-20">
                 <Image
                   src="/amco-logo.jpg"
                   alt="AMCO Valves Logo"
