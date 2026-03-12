@@ -33,7 +33,7 @@ export function Hero() {
             <span className="text-xs font-bold tracking-[0.1em] uppercase">Precision Engineered Solutions</span>
           </div>
 
-          <h1 className="text-[56px] md:text-[72px] lg:text-[84px] font-bold text-primary leading-[1.05] mb-8">
+          <h1 className="text-[48px] md:text-[65px] font-bold text-primary leading-[1.05] mb-8">
             Pioneering the <br /> Future of <span className="text-secondary">Industrial Flow</span>
           </h1>
           
