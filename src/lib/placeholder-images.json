@@ -86,9 +86,9 @@
     },
     {
       "id": "certification-main",
-      "description": "AMCO Valves Official Certification",
-      "imageUrl": "/API-6D.jpg",
-      "imageHint": "certification document"
+      "description": "AMCO Valves ISO 9001:2015 Certification",
+      "imageUrl": "/iso2015.webp",
+      "imageHint": "iso certification"
     },
     {
       "id": "gallery-1",
