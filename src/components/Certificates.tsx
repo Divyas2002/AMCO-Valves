@@ -79,13 +79,13 @@ export function Certificates() {
 
           {/* Image Section */}
           <div className="lg:sticky lg:top-32 space-y-8">
-            <div className="relative w-full aspect-[1.4/1] rounded-[3rem] overflow-hidden shadow-2xl transition-transform hover:scale-[1.01] duration-500 border-8 border-white">
+            <div className="relative w-full aspect-[1.4/1] rounded-[3rem] overflow-hidden shadow-2xl transition-transform hover:scale-[1.01] duration-500 border-8 border-white bg-white">
               {certImg && (
                 <Image
                   src={certImg.imageUrl}
                   alt={certImg.description}
                   fill
-                  className="object-cover"
+                  className="object-contain p-4"
                   data-ai-hint={certImg.imageHint}
                 />
               )}
