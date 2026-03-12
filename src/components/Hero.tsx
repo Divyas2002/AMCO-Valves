@@ -1,8 +1,30 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ShieldCheck, Factory, Zap } from "lucide-react";
+import { ArrowRight, ShieldCheck, Factory, Zap, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+
+function Counter({ end, duration = 2000 }: { end: number; duration?: number }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let startTimestamp: number | null = null;
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      setCount(Math.floor(progress * end));
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }, [end, duration]);
+
+  return <>{count}</>;
+}
 
 export function Hero() {
   const heroImage = PlaceHolderImages.find((img) => img.id === "hero-bg");
@@ -21,7 +43,6 @@ export function Hero() {
             data-ai-hint={heroImage.imageHint}
           />
         )}
-        {/* Adjusted gradient for light themed industrial look from the image */}
         <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/60 to-transparent" />
       </div>
 
@@ -52,35 +73,41 @@ export function Hero() {
             </Button>
           </div>
 
-          {/* Stats Section matching the image layout */}
+          {/* Stats Section with Counter Animation */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 pt-12 border-t border-black/5">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 flex items-center justify-center text-secondary">
-                <Factory size={36} />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-primary font-bold text-3xl leading-none mb-1">25+</span>
-                <p className="text-foreground/50 text-sm font-medium">Years Experience</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 flex items-center justify-center text-secondary">
-                <ShieldCheck size={36} />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-primary font-bold text-3xl leading-none mb-1">100%</span>
-                <p className="text-foreground/50 text-sm font-medium">Quality Testing</p>
-              </div>
-            </div>
-
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center text-secondary">
                 <Zap size={36} />
               </div>
               <div className="flex flex-col">
-                <span className="text-primary font-bold text-3xl leading-none mb-1">500+</span>
-                <p className="text-foreground/50 text-sm font-medium">Global Projects</p>
+                <span className="text-primary font-bold text-3xl leading-none mb-1">
+                  <Counter end={200} />+
+                </span>
+                <p className="text-foreground/50 text-sm font-medium">Projects Completed</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 flex items-center justify-center text-secondary">
+                <Users size={36} />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-primary font-bold text-3xl leading-none mb-1">
+                  <Counter end={300} />+
+                </span>
+                <p className="text-foreground/50 text-sm font-medium">Happy Customers</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 flex items-center justify-center text-secondary">
+                <Factory size={36} />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-primary font-bold text-3xl leading-none mb-1">
+                  <Counter end={10} />+
+                </span>
+                <p className="text-foreground/50 text-sm font-medium">Work Facilities</p>
               </div>
             </div>
           </div>
