@@ -9,7 +9,7 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Column 1: Logo and About */}
           <div>
-            <Link href="/" className="flex items-center mb-6">
+            <Link href="#" className="flex items-center mb-6">
               <div className="relative w-36 h-20">
                 <Image
                   src="/amco-logo.jpg"
