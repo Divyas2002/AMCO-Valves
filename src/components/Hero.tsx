@@ -47,23 +47,23 @@ export function Hero() {
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-16 pt-12 border-t border-white/10">
-            <div className="flex flex-col gap-1">
-              <div className="text-white font-bold text-3xl flex items-center gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-16 pt-14 border-t border-white/10">
+            <div className="flex flex-col gap-2">
+              <div className="text-white font-bold text-3xl flex items-center gap-3 leading-normal">
                 <Factory className="text-secondary shrink-0" size={28} />
                 <span>25+</span>
               </div>
               <p className="text-white/60 text-sm font-medium">Years Experience</p>
             </div>
-            <div className="flex flex-col gap-1">
-              <div className="text-white font-bold text-3xl flex items-center gap-3">
+            <div className="flex flex-col gap-2">
+              <div className="text-white font-bold text-3xl flex items-center gap-3 leading-normal">
                 <ShieldCheck className="text-secondary shrink-0" size={28} />
                 <span>100%</span>
               </div>
               <p className="text-white/60 text-sm font-medium">Quality Testing</p>
             </div>
-            <div className="flex flex-col gap-1">
-              <div className="text-white font-bold text-3xl flex items-center gap-3">
+            <div className="flex flex-col gap-2">
+              <div className="text-white font-bold text-3xl flex items-center gap-3 leading-normal">
                 <Zap className="text-secondary shrink-0" size={28} />
                 <span>500+</span>
               </div>
