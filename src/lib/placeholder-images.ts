@@ -9,7 +9,7 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
   {
     "id": "hero-bg",
     "description": "AMCO Valves main banner",
-    "imageUrl": "https://picsum.photos/seed/hero/1920/1080",
+    "imageUrl": "/Amco-Banner.png",
     "imageHint": "industrial banner"
   },
   {
@@ -21,13 +21,13 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
   {
     "id": "product-2",
     "description": "2 Piece Ball Valve",
-    "imageUrl": "https://picsum.photos/seed/v2/600/400",
+    "imageUrl": "/valve-2piece.jpg",
     "imageHint": "steel valve"
   },
   {
     "id": "product-3",
     "description": "3 Piece Ball Valve",
-    "imageUrl": "https://picsum.photos/seed/v3/600/400",
+    "imageUrl": "/valve-3.jpg",
     "imageHint": "flanged valve"
   },
   {
@@ -93,31 +93,31 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
   {
     "id": "certification-main",
     "description": "AMCO Valves Certification",
-    "imageUrl": "https://picsum.photos/seed/cert/800/600",
+    "imageUrl": "/iso2015.webp",
     "imageHint": "iso certification"
   },
   {
     "id": "gallery-1",
     "description": "Valve manufacturing process",
-    "imageUrl": "https://picsum.photos/seed/g1/800/600",
+    "imageUrl": "/gallery-1.jpg",
     "imageHint": "factory valve"
   },
   {
     "id": "gallery-2",
     "description": "Large flanged valves in warehouse",
-    "imageUrl": "https://picsum.photos/seed/g2/800/600",
+    "imageUrl": "/gallery-2.jpg",
     "imageHint": "industrial inventory"
   },
   {
     "id": "gallery-3",
     "description": "Precision engineering of valve parts",
-    "imageUrl": "https://picsum.photos/seed/g3/800/600",
+    "imageUrl": "/gallery-3.jpg",
     "imageHint": "precision engineering"
   },
   {
     "id": "gallery-4",
     "description": "Finished ball valves ready for shipping",
-    "imageUrl": "https://picsum.photos/seed/g4/800/600",
+    "imageUrl": "/gallery-4.jpg",
     "imageHint": "quality control"
   }
 ];
