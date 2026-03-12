@@ -31,6 +31,75 @@ const productData = [
   { id: "13", title: "Instrumentation Valve", specs: "High Precision", features: ["Small Bore", "Fine Control"] },
 ];
 
+/**
+ * A sub-component to handle the nested image slider for each product card.
+ */
+function ProductImageSlider({ productId, title }: { productId: string, title: string }) {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  // We'll simulate multiple images by using the main product image and a few gallery images
+  const mainImage = PlaceHolderImages.find(img => img.id === `product-${productId}`);
+  const galleryImages = PlaceHolderImages.filter(img => img.id.startsWith("gallery-")).slice(0, 2);
+  const sliderImages = mainImage ? [mainImage, ...galleryImages] : galleryImages;
+
+  const onSelect = useCallback(() => {
+    if (!api) return;
+    setCurrent(api.selectedScrollSnap());
+  }, [api]);
+
+  useEffect(() => {
+    if (!api) return;
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap());
+    api.on("select", onSelect);
+  }, [api, onSelect]);
+
+  return (
+    <div className="relative h-60 w-full overflow-hidden bg-muted group/inner">
+      <Carousel setApi={setApi} opts={{ loop: true }} className="w-full h-full">
+        <CarouselContent className="h-full ml-0">
+          {sliderImages.map((img, idx) => (
+            <CarouselItem key={`${productId}-img-${idx}`} className="pl-0 h-full">
+              <div className="relative w-full h-full">
+                <Image
+                  src={img.imageUrl}
+                  alt={`${title} - View ${idx + 1}`}
+                  fill
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                  data-ai-hint={img.imageHint}
+                />
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
+      
+      {/* Inner Dotted Navigation Overlay */}
+      <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-10">
+        {Array.from({ length: count }).map((_, i) => (
+          <div
+            key={i}
+            className={cn(
+              "w-1.5 h-1.5 rounded-full transition-all duration-300",
+              current === i 
+                ? "bg-white scale-125" 
+                : "bg-white/40"
+            )}
+          />
+        ))}
+      </div>
+
+      <div className="absolute top-4 left-4 z-10">
+        <Badge variant="secondary" className="px-4 py-1.5 font-bold uppercase tracking-wider text-[10px]">
+          Industrial
+        </Badge>
+      </div>
+    </div>
+  );
+}
+
 export function Products() {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
@@ -61,7 +130,7 @@ export function Products() {
           </p>
         </div>
 
-        <div className="relative mb-20 group">
+        <div className="relative mb-20">
           <Carousel
             setApi={setApi}
             opts={{
@@ -71,47 +140,33 @@ export function Products() {
             className="w-full"
           >
             <CarouselContent className="-ml-4">
-              {productData.map((product) => {
-                const imageObj = PlaceHolderImages.find(img => img.id === `product-${product.id}`);
-                return (
-                  <CarouselItem key={product.id} className="pl-4 md:basis-1/2 lg:basis-1/4">
-                    <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 border-none bg-white rounded-[2rem]">
-                      <div className="relative h-60 overflow-hidden bg-muted">
-                        {imageObj && (
-                          <Image
-                            src={imageObj.imageUrl}
-                            alt={product.title}
-                            fill
-                            className="object-cover transition-transform duration-700 hover:scale-110"
-                            data-ai-hint={imageObj.imageHint}
-                          />
-                        )}
-                        <div className="absolute top-4 left-4">
-                          <Badge variant="secondary" className="px-4 py-1.5 font-bold uppercase tracking-wider text-[10px]">Industrial</Badge>
-                        </div>
-                      </div>
-                      <CardHeader className="pb-2">
-                        <CardTitle className="text-xl font-bold text-primary line-clamp-1">{product.title}</CardTitle>
-                        <p className="text-secondary font-semibold text-xs line-clamp-1">{product.specs}</p>
-                      </CardHeader>
-                      <CardContent>
-                        <ul className="space-y-2">
-                          {product.features.map((feature, i) => (
-                            <li key={i} className="flex items-center gap-2 text-foreground/70 text-xs">
-                              <div className="w-1 h-1 rounded-full bg-secondary shrink-0" />
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                );
-              })}
+              {productData.map((product) => (
+                <CarouselItem key={product.id} className="pl-4 md:basis-1/2 lg:basis-1/4">
+                  <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 border-none bg-white rounded-[2rem] flex flex-col">
+                    {/* Replaced static image with inner slider */}
+                    <ProductImageSlider productId={product.id} title={product.title} />
+                    
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-xl font-bold text-primary line-clamp-1">{product.title}</CardTitle>
+                      <p className="text-secondary font-semibold text-xs line-clamp-1">{product.specs}</p>
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                      <ul className="space-y-2">
+                        {product.features.map((feature, i) => (
+                          <li key={i} className="flex items-center gap-2 text-foreground/70 text-xs">
+                            <div className="w-1 h-1 rounded-full bg-secondary shrink-0" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
             </CarouselContent>
           </Carousel>
 
-          {/* Dotted Navigation */}
+          {/* Dotted Navigation for the main products carousel */}
           <div className="flex justify-center gap-2 mt-8">
             {Array.from({ length: count }).map((_, i) => (
               <button
