@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "hero-bg",
-      "description": "Industrial valve factory background",
-      "imageUrl": "https://picsum.photos/seed/amco-hero/1920/1080",
-      "imageHint": "industrial valve"
+      "description": "AMCO Valves main banner",
+      "imageUrl": "/Amco-Banner.png",
+      "imageHint": "industrial banner"
     },
     {
       "id": "product-1pc",
