@@ -5,7 +5,9 @@
 @layer base {
   :root {
     --background: 218 25% 94%;
-    --foreground: 0 0% 20%;
+    --foreground: 0 0% {
+      20%;
+    }
     --card: 0 0% 100%;
     --card-foreground: 0 0% 20%;
     --popover: 0 0% 100%;
@@ -24,6 +26,7 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222 74% 14%;
     --radius: 0.75rem;
+    scroll-behavior: smooth;
   }
 
   .dark {
@@ -55,6 +58,27 @@
   }
   body {
     @apply bg-background text-foreground font-body;
-    scroll-behavior: smooth;
+  }
+  
+  /* Smooth scroll offset for fixed header */
+  section[id] {
+    scroll-margin-top: 100px;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
