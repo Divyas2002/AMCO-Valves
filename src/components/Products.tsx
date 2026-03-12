@@ -45,7 +45,7 @@ export function Products() {
 
         <div className="grid lg:grid-cols-3 gap-8 mb-20">
           {products.map((product) => (
-            <Card key={product.id} className="overflow-hidden group hover:shadow-2xl transition-all duration-500 border-none bg-white rounded-[2rem]">
+            <Card key={product.id} className="overflow-hidden group hover:shadow-2xl hover:bg-secondary/5 transition-all duration-500 border-none bg-white rounded-[2rem]">
               <div className="relative h-72 overflow-hidden bg-muted">
                 {product.image && (
                   <Image
@@ -79,22 +79,22 @@ export function Products() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-primary p-8 rounded-[2rem] text-white flex flex-col gap-4 shadow-lg">
+          <div className="bg-primary p-8 rounded-[2rem] text-white flex flex-col gap-4 shadow-lg hover:bg-primary/95 transition-all duration-300">
             <Maximize size={32} className="text-secondary" />
             <h4 className="text-lg font-bold">Configurations</h4>
             <p className="text-white/60 text-sm">1 Pc, 2 Pc, 3 Pc Designs</p>
           </div>
-          <div className="bg-white p-8 rounded-[2rem] text-primary border border-border flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
+          <div className="bg-white p-8 rounded-[2rem] text-primary border border-border flex flex-col gap-4 shadow-sm hover:shadow-md hover:bg-secondary/5 transition-all duration-300">
             <Layers size={32} className="text-secondary" />
             <h4 className="text-lg font-bold">Connections</h4>
             <p className="text-foreground/60 text-sm">Screwed, Socket Weld, Butt Weld, Flanged</p>
           </div>
-          <div className="bg-white p-8 rounded-[2rem] text-primary border border-border flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
+          <div className="bg-white p-8 rounded-[2rem] text-primary border border-border flex flex-col gap-4 shadow-sm hover:shadow-md hover:bg-secondary/5 transition-all duration-300">
             <Settings size={32} className="text-secondary" />
             <h4 className="text-lg font-bold">Seat Types</h4>
             <p className="text-foreground/60 text-sm">Soft & Metal Seat Options</p>
           </div>
-          <div className="bg-white p-8 rounded-[2rem] text-primary border border-border flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
+          <div className="bg-white p-8 rounded-[2rem] text-primary border border-border flex flex-col gap-4 shadow-sm hover:shadow-md hover:bg-secondary/5 transition-all duration-300">
             <Gauge size={32} className="text-secondary" />
             <h4 className="text-lg font-bold">Mounting</h4>
             <p className="text-foreground/60 text-sm">Floating & Trunnion Mounted</p>
