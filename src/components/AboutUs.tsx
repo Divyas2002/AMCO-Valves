@@ -4,14 +4,14 @@ export function AboutUs() {
   return (
     <section id="about" className="py-24 bg-white">
       <div className="container mx-auto px-6">
-        {/* New Header Section from Image */}
+        {/* Header Section */}
         <div className="grid lg:grid-cols-2 gap-12 items-end mb-20">
           <div>
             <div className="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
               <Globe size={14} />
               About AMCO Valves
             </div>
-            <h3 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary leading-[1.1]">
+            <h3 className="text-[52px] font-bold text-primary leading-[1.1]">
               Trusted by Industry <span className="text-secondary block">Since 1986</span>
             </h3>
           </div>
