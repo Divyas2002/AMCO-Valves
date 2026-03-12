@@ -85,7 +85,7 @@ export function Footer() {
           </div>
         </div>
         
-        <div className="pt-8 border-t border-white/10 text-center text-white/40 text-xs">
+        <div className="pt-8 border-t border-white/10 text-center text-white/40 text-[15px]">
           <p>© {new Date().getFullYear()} AMCO Valves. All Rights Reserved. Engineered for excellence.</p>
         </div>
       </div>
