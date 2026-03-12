@@ -69,7 +69,7 @@ export function AboutUs() {
           </div>
         </div>
 
-        <div className="text-center p-14 bg-primary rounded-[3.5rem] text-white shadow-2xl">
+        <div className="text-center p-14 bg-primary rounded-[35px] text-white shadow-2xl">
           <h4 className="text-3xl md:text-4xl font-bold mb-6">
             At AMCO, you do not have to pay a premium for Quality.
           </h4>
