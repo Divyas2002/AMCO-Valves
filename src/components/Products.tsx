@@ -39,7 +39,6 @@ function ProductImageSlider({ productId, title }: { productId: string, title: st
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
 
-  // We'll simulate multiple images by using the main product image and a few gallery images
   const mainImage = PlaceHolderImages.find(img => img.id === `product-${productId}`);
   const galleryImages = PlaceHolderImages.filter(img => img.id.startsWith("gallery-")).slice(0, 2);
   const sliderImages = mainImage ? [mainImage, ...galleryImages] : galleryImages;
@@ -76,7 +75,6 @@ function ProductImageSlider({ productId, title }: { productId: string, title: st
         </CarouselContent>
       </Carousel>
       
-      {/* Inner Dotted Navigation Overlay */}
       <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-10">
         {Array.from({ length: count }).map((_, i) => (
           <div
@@ -136,11 +134,7 @@ export function Products() {
             opts={{
               align: "start",
               loop: true,
-              slidesToScroll: 1,
-              breakpoints: {
-                '(min-width: 1024px)': { slidesToScroll: 4 },
-                '(min-width: 768px)': { slidesToScroll: 2 },
-              }
+              slidesToScroll: 4, // Ensures snaps are generated every 4 slides
             }}
             className="w-full"
           >
@@ -170,7 +164,6 @@ export function Products() {
             </CarouselContent>
           </Carousel>
 
-          {/* Grouped Dotted Navigation */}
           <div className="flex justify-center gap-2 mt-8">
             {Array.from({ length: count }).map((_, i) => (
               <button
@@ -188,7 +181,6 @@ export function Products() {
           </div>
         </div>
 
-        {/* Categories Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             { icon: Maximize, title: "Configurations", desc: "1, 2, 3 Piece Designs" },
