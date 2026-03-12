@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
@@ -67,6 +66,7 @@ function ProductImageSlider({ productId, title }: { productId: string, title: st
                   alt={`${title} - View ${idx + 1}`}
                   fill
                   className="object-cover transition-transform duration-700 hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   data-ai-hint={img.imageHint}
                 />
               </div>
@@ -134,7 +134,7 @@ export function Products() {
             opts={{
               align: "start",
               loop: true,
-              slidesToScroll: 4, // Ensures snaps are generated every 4 slides
+              slidesToScroll: 4, 
             }}
             className="w-full"
           >
