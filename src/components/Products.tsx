@@ -1,37 +1,55 @@
 
 "use client";
 
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { Settings, Maximize, Layers, Gauge } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  type CarouselApi 
+} from "@/components/ui/carousel";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { cn } from "@/lib/utils";
 
-const products = [
-  {
-    id: "product-1pc",
-    title: "1 Piece Ball Valve",
-    specs: "Economical, Reduced Port",
-    features: ["Compact Design", "Minimal Leakage Paths", "Blow-out Proof Stem"],
-    image: PlaceHolderImages.find(img => img.id === "product-1pc")
-  },
-  {
-    id: "product-2pc",
-    title: "2 Piece Ball Valve",
-    specs: "Full Port, Robust Construction",
-    features: ["Two-part Body", "Easy Maintenance", "High Flow Capacity"],
-    image: PlaceHolderImages.find(img => img.id === "product-2pc")
-  },
-  {
-    id: "product-3pc",
-    title: "3 Piece Ball Valve",
-    specs: "Maintenance-Friendly Design",
-    features: ["In-line Serviceable", "Swing-out Design", "Multiple Connection Options"],
-    image: PlaceHolderImages.find(img => img.id === "product-3pc")
-  }
+const productData = [
+  { id: "1", title: "1 Piece Ball Valve", specs: "Economical, Reduced Port", features: ["Compact Design", "Minimal Leakage Paths"] },
+  { id: "2", title: "2 Piece Ball Valve", specs: "Full Port, Robust", features: ["Two-part Body", "Easy Maintenance"] },
+  { id: "3", title: "3 Piece Ball Valve", specs: "Maintenance-Friendly", features: ["In-line Serviceable", "Swing-out Design"] },
+  { id: "4", title: "Flanged Ball Valve", specs: "ASME B16.5 Standard", features: ["Flanged Connection", "High Durability"] },
+  { id: "5", title: "Socket Weld Valve", specs: "API 607 Fire Safe", features: ["Secure Jointing", "Leak Proof"] },
+  { id: "6", title: "Butt Weld Valve", specs: "Industrial Grade", features: ["High Temperature", "Strong Weld"] },
+  { id: "7", title: "Screwed Ball Valve", specs: "NPT / BSP Threaded", features: ["Quick Install", "Versatile Usage"] },
+  { id: "8", title: "High Pressure Valve", specs: "Class 800 - 2500", features: ["Heavy Duty", "Safety Tested"] },
+  { id: "9", title: "Trunnion Mounted", specs: "High Pressure Ops", features: ["Low Torque", "Double Block"] },
+  { id: "10", title: "Floating Ball Valve", specs: "Self-Relieving Seats", features: ["Bi-directional", "Reliable Seal"] },
+  { id: "11", title: "Soft Seat Valve", specs: "PTFE / RPTFE Seats", features: ["Zero Leakage", "Chemical Resistant"] },
+  { id: "12", title: "Metal Seat Valve", specs: "Stellite Overlays", features: ["Abrasive Media", "Extremely Tough"] },
+  { id: "13", title: "Instrumentation Valve", specs: "High Precision", features: ["Small Bore", "Fine Control"] },
 ];
 
 export function Products() {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  const onSelect = useCallback(() => {
+    if (!api) return;
+    setCurrent(api.selectedScrollSnap());
+  }, [api]);
+
+  useEffect(() => {
+    if (!api) return;
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap());
+    api.on("select", onSelect);
+  }, [api, onSelect]);
+
+  const scrollTo = useCallback((index: number) => api?.scrollTo(index), [api]);
+
   return (
     <section id="products" className="py-24 bg-background">
       <div className="container mx-auto px-6">
@@ -39,66 +57,95 @@ export function Products() {
           <h2 className="text-secondary font-bold text-sm uppercase tracking-widest mb-3">Product Portfolio</h2>
           <h3 className="text-3xl md:text-5xl font-bold text-primary mb-6">Our Valve Solutions</h3>
           <p className="text-foreground/70">
-            We specialize in a comprehensive range of Ball Valves designed to meet the most demanding industrial requirements.
+            Discover our comprehensive range of 13 precision-engineered Ball Valves designed for the world's most demanding industrial environments.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-20">
-          {products.map((product) => (
-            <Card key={product.id} className="overflow-hidden group hover:shadow-2xl hover:bg-secondary/5 transition-all duration-500 border-none bg-white rounded-[2rem]">
-              <div className="relative h-72 overflow-hidden bg-muted">
-                {product.image && (
-                  <Image
-                    src={product.image.imageUrl}
-                    alt={product.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    data-ai-hint={product.image.imageHint}
-                  />
+        <div className="relative mb-20 group">
+          <Carousel
+            setApi={setApi}
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {productData.map((product) => {
+                const imageObj = PlaceHolderImages.find(img => img.id === `product-${product.id}`);
+                return (
+                  <CarouselItem key={product.id} className="pl-4 md:basis-1/2 lg:basis-1/4">
+                    <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 border-none bg-white rounded-[2rem]">
+                      <div className="relative h-60 overflow-hidden bg-muted">
+                        {imageObj && (
+                          <Image
+                            src={imageObj.imageUrl}
+                            alt={product.title}
+                            fill
+                            className="object-cover transition-transform duration-700 hover:scale-110"
+                            data-ai-hint={imageObj.imageHint}
+                          />
+                        )}
+                        <div className="absolute top-4 left-4">
+                          <Badge variant="secondary" className="px-4 py-1.5 font-bold uppercase tracking-wider text-[10px]">Industrial</Badge>
+                        </div>
+                      </div>
+                      <CardHeader className="pb-2">
+                        <CardTitle className="text-xl font-bold text-primary line-clamp-1">{product.title}</CardTitle>
+                        <p className="text-secondary font-semibold text-xs line-clamp-1">{product.specs}</p>
+                      </CardHeader>
+                      <CardContent>
+                        <ul className="space-y-2">
+                          {product.features.map((feature, i) => (
+                            <li key={i} className="flex items-center gap-2 text-foreground/70 text-xs">
+                              <div className="w-1 h-1 rounded-full bg-secondary shrink-0" />
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                );
+              })}
+            </CarouselContent>
+          </Carousel>
+
+          {/* Dotted Navigation */}
+          <div className="flex justify-center gap-2 mt-8">
+            {Array.from({ length: count }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => scrollTo(i)}
+                className={cn(
+                  "w-3 h-3 rounded-full transition-all duration-300",
+                  current === i 
+                    ? "bg-secondary w-8" 
+                    : "bg-secondary/20 hover:bg-secondary/40"
                 )}
-                <div className="absolute top-4 left-4">
-                  <Badge variant="secondary" className="px-4 py-1.5 font-bold uppercase tracking-wider text-[10px]">Premium Grade</Badge>
-                </div>
-              </div>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-2xl font-bold text-primary">{product.title}</CardTitle>
-                <p className="text-secondary font-semibold text-sm">{product.specs}</p>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  {product.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-3 text-foreground/70 text-sm">
-                      <div className="w-1.5 h-1.5 rounded-full bg-secondary shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          ))}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
+        {/* Categories Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-primary p-8 rounded-[2rem] text-white flex flex-col gap-4 shadow-lg hover:bg-primary/95 transition-all duration-300">
-            <Maximize size={32} className="text-secondary" />
-            <h4 className="text-lg font-bold">Configurations</h4>
-            <p className="text-white/60 text-sm">1 Pc, 2 Pc, 3 Pc Designs</p>
-          </div>
-          <div className="bg-white p-8 rounded-[2rem] text-primary border border-border flex flex-col gap-4 shadow-sm hover:shadow-md hover:bg-secondary hover:text-white transition-all duration-300 group">
-            <Layers size={32} className="text-secondary group-hover:text-white transition-colors" />
-            <h4 className="text-lg font-bold transition-colors">Connections</h4>
-            <p className="text-foreground/60 text-sm group-hover:text-white/90 transition-colors">Screwed, Socket Weld, Butt Weld, Flanged</p>
-          </div>
-          <div className="bg-white p-8 rounded-[2rem] text-primary border border-border flex flex-col gap-4 shadow-sm hover:shadow-md hover:bg-secondary hover:text-white transition-all duration-300 group">
-            <Settings size={32} className="text-secondary group-hover:text-white transition-colors" />
-            <h4 className="text-lg font-bold transition-colors">Seat Types</h4>
-            <p className="text-foreground/60 text-sm group-hover:text-white/90 transition-colors">Soft & Metal Seat Options</p>
-          </div>
-          <div className="bg-white p-8 rounded-[2rem] text-primary border border-border flex flex-col gap-4 shadow-sm hover:shadow-md hover:bg-secondary hover:text-white transition-all duration-300 group">
-            <Gauge size={32} className="text-secondary group-hover:text-white transition-colors" />
-            <h4 className="text-lg font-bold transition-colors">Mounting</h4>
-            <p className="text-foreground/60 text-sm group-hover:text-white/90 transition-colors">Floating & Trunnion Mounted</p>
-          </div>
+          {[
+            { icon: Maximize, title: "Configurations", desc: "1, 2, 3 Piece Designs" },
+            { icon: Layers, title: "Connections", desc: "Threaded, Weld, Flanged" },
+            { icon: Settings, title: "Seat Types", desc: "Soft & Metal Seat Options" },
+            { icon: Gauge, title: "Mounting", desc: "Floating & Trunnion" }
+          ].map((item, idx) => (
+            <div 
+              key={idx} 
+              className="bg-white p-8 rounded-[2rem] text-primary border border-border flex flex-col gap-4 shadow-sm hover:bg-secondary hover:text-white transition-all duration-300 group"
+            >
+              <item.icon size={32} className="text-secondary group-hover:text-white transition-colors" />
+              <h4 className="text-lg font-bold">{item.title}</h4>
+              <p className="text-foreground/60 text-sm group-hover:text-white/90">{item.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

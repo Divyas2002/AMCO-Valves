@@ -7,52 +7,88 @@
       "imageHint": "industrial banner"
     },
     {
-      "id": "product-1pc",
+      "id": "product-1",
       "description": "1 Piece Ball Valve",
       "imageUrl": "/valve-1piece.jpg",
       "imageHint": "ball valve"
     },
     {
-      "id": "product-2pc",
+      "id": "product-2",
       "description": "2 Piece Ball Valve",
       "imageUrl": "/valve-2piece.jpg",
       "imageHint": "steel valve"
     },
     {
-      "id": "product-3pc",
+      "id": "product-3",
       "description": "3 Piece Ball Valve",
       "imageUrl": "/valve-3.jpg",
       "imageHint": "flanged valve"
     },
     {
-      "id": "cert-industrial-1",
-      "description": "Industrial plant ISO certification",
-      "imageUrl": "https://picsum.photos/seed/amco-cert-ind1/800/600",
-      "imageHint": "factory iso"
+      "id": "product-4",
+      "description": "Flanged Ball Valve",
+      "imageUrl": "https://picsum.photos/seed/v4/600/400",
+      "imageHint": "flanged valve"
     },
     {
-      "id": "cert-industrial-2",
-      "description": "Manufacturing quality control",
-      "imageUrl": "https://picsum.photos/seed/amco-cert-ind2/800/600",
-      "imageHint": "quality control"
+      "id": "product-5",
+      "description": "Socket Weld Ball Valve",
+      "imageUrl": "https://picsum.photos/seed/v5/600/400",
+      "imageHint": "industrial valve"
+    },
+    {
+      "id": "product-6",
+      "description": "Butt Weld Ball Valve",
+      "imageUrl": "https://picsum.photos/seed/v6/600/400",
+      "imageHint": "precision valve"
+    },
+    {
+      "id": "product-7",
+      "description": "Screwed Ball Valve",
+      "imageUrl": "https://picsum.photos/seed/v7/600/400",
+      "imageHint": "threaded valve"
+    },
+    {
+      "id": "product-8",
+      "description": "High Pressure Valve",
+      "imageUrl": "https://picsum.photos/seed/v8/600/400",
+      "imageHint": "pressure valve"
+    },
+    {
+      "id": "product-9",
+      "description": "Trunnion Mounted Ball Valve",
+      "imageUrl": "https://picsum.photos/seed/v9/600/400",
+      "imageHint": "mounted valve"
+    },
+    {
+      "id": "product-10",
+      "description": "Floating Ball Valve",
+      "imageUrl": "https://picsum.photos/seed/v10/600/400",
+      "imageHint": "floating valve"
+    },
+    {
+      "id": "product-11",
+      "description": "Soft Seat Ball Valve",
+      "imageUrl": "https://picsum.photos/seed/v11/600/400",
+      "imageHint": "seat valve"
+    },
+    {
+      "id": "product-12",
+      "description": "Metal Seat Ball Valve",
+      "imageUrl": "https://picsum.photos/seed/v12/600/400",
+      "imageHint": "metal valve"
+    },
+    {
+      "id": "product-13",
+      "description": "Instrumentation Valve",
+      "imageUrl": "https://picsum.photos/seed/v13/600/400",
+      "imageHint": "instrumentation valve"
     },
     {
       "id": "certification-main",
       "description": "AMCO Valves Official Certification",
       "imageUrl": "/certification.jpg",
       "imageHint": "certification document"
-    },
-    {
-      "id": "cert-iso",
-      "description": "ISO Certification Logo",
-      "imageUrl": "https://picsum.photos/seed/amco-cert1/200/200",
-      "imageHint": "iso certificate"
-    },
-    {
-      "id": "cert-api",
-      "description": "API Certification Logo",
-      "imageUrl": "https://picsum.photos/seed/amco-cert2/200/200",
-      "imageHint": "api logo"
     },
     {
       "id": "gallery-1",
