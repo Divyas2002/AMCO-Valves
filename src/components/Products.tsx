@@ -84,20 +84,20 @@ export function Products() {
             <h4 className="text-lg font-bold">Configurations</h4>
             <p className="text-white/60 text-sm">1 Pc, 2 Pc, 3 Pc Designs</p>
           </div>
-          <div className="bg-white p-8 rounded-[2rem] text-primary border border-border flex flex-col gap-4 shadow-sm hover:shadow-md hover:bg-[#FFF1EA] transition-all duration-300 group">
-            <Layers size={32} className="text-secondary transition-colors" />
+          <div className="bg-white p-8 rounded-[2rem] text-primary border border-border flex flex-col gap-4 shadow-sm hover:shadow-md hover:bg-secondary hover:text-white transition-all duration-300 group">
+            <Layers size={32} className="text-secondary group-hover:text-white transition-colors" />
             <h4 className="text-lg font-bold transition-colors">Connections</h4>
-            <p className="text-foreground/60 text-sm transition-colors">Screwed, Socket Weld, Butt Weld, Flanged</p>
+            <p className="text-foreground/60 text-sm group-hover:text-white/90 transition-colors">Screwed, Socket Weld, Butt Weld, Flanged</p>
           </div>
-          <div className="bg-white p-8 rounded-[2rem] text-primary border border-border flex flex-col gap-4 shadow-sm hover:shadow-md hover:bg-[#FFF1EA] transition-all duration-300 group">
-            <Settings size={32} className="text-secondary transition-colors" />
+          <div className="bg-white p-8 rounded-[2rem] text-primary border border-border flex flex-col gap-4 shadow-sm hover:shadow-md hover:bg-secondary hover:text-white transition-all duration-300 group">
+            <Settings size={32} className="text-secondary group-hover:text-white transition-colors" />
             <h4 className="text-lg font-bold transition-colors">Seat Types</h4>
-            <p className="text-foreground/60 text-sm transition-colors">Soft & Metal Seat Options</p>
+            <p className="text-foreground/60 text-sm group-hover:text-white/90 transition-colors">Soft & Metal Seat Options</p>
           </div>
-          <div className="bg-white p-8 rounded-[2rem] text-primary border border-border flex flex-col gap-4 shadow-sm hover:shadow-md hover:bg-[#FFF1EA] transition-all duration-300 group">
-            <Gauge size={32} className="text-secondary transition-colors" />
+          <div className="bg-white p-8 rounded-[2rem] text-primary border border-border flex flex-col gap-4 shadow-sm hover:shadow-md hover:bg-secondary hover:text-white transition-all duration-300 group">
+            <Gauge size={32} className="text-secondary group-hover:text-white transition-colors" />
             <h4 className="text-lg font-bold transition-colors">Mounting</h4>
-            <p className="text-foreground/60 text-sm transition-colors">Floating & Trunnion Mounted</p>
+            <p className="text-foreground/60 text-sm group-hover:text-white/90 transition-colors">Floating & Trunnion Mounted</p>
           </div>
         </div>
       </div>
