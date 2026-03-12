@@ -34,7 +34,7 @@ export function Hero() {
           </div>
 
           <h1 className="text-[48px] md:text-[65px] font-bold text-primary leading-[1.05] mb-8">
-            Pioneering the <br /> Future of <span className="text-secondary">Industrial Flow</span>
+            Pioneering the <br /> Future of <br /> <span className="text-secondary">Industrial Flow</span>
           </h1>
           
           <p className="text-lg md:text-xl text-foreground/70 mb-10 max-w-xl leading-relaxed">
