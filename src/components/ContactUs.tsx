@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -42,8 +42,17 @@ export function ContactUs() {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-primary mb-1">Our Headquarters</h4>
-                  <p className="text-foreground/60 text-sm">Industrial Hub 4, Plot 12B, Engineering District, Chennai, India</p>
+                  <h4 className="font-bold text-primary mb-1">Factory</h4>
+                  <p className="text-foreground/60 text-sm">638/A Tiruvottriyur high road, Ajax, Chennai, 600019</p>
+                </div>
+              </div>
+              <div className="flex gap-6">
+                <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+                  <MapPin size={24} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-primary mb-1">Ware house</h4>
+                  <p className="text-foreground/60 text-sm">104-A East Mada church street, Royapuram, Chennai, 600013</p>
                 </div>
               </div>
               <div className="flex gap-6">
@@ -51,8 +60,8 @@ export function ContactUs() {
                   <Phone size={24} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-primary mb-1">Phone Number</h4>
-                  <p className="text-foreground/60 text-sm">+91 98411 14671</p>
+                  <h4 className="font-bold text-primary mb-1">Mobile</h4>
+                  <p className="text-foreground/60 text-sm">91-0-9841114671</p>
                 </div>
               </div>
               <div className="flex gap-6">
@@ -60,17 +69,8 @@ export function ContactUs() {
                   <Mail size={24} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-primary mb-1">Email Address</h4>
+                  <h4 className="font-bold text-primary mb-1">Email</h4>
                   <p className="text-foreground/60 text-sm">contact@amcovalves.com</p>
-                </div>
-              </div>
-              <div className="flex gap-6">
-                <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
-                  <Clock size={24} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-primary mb-1">Working Hours</h4>
-                  <p className="text-foreground/60 text-sm">Mon - Fri: 9:00 AM - 6:00 PM (IST)</p>
                 </div>
               </div>
             </div>
