@@ -116,10 +116,6 @@ export function Products() {
           <p className="text-foreground/70 mb-8">
             Discover our comprehensive range of 13 precision-engineered Ball Valves designed for the world's most demanding industrial environments.
           </p>
-          <Button variant="secondary" size="lg" className="rounded-xl font-bold px-8 shadow-lg hover:shadow-secondary/20 transition-all">
-            <Download className="mr-2 h-5 w-5" />
-            Download Brochure
-          </Button>
         </div>
 
         {/* Carousel Slider for products */}
@@ -150,6 +146,14 @@ export function Products() {
               ))}
             </CarouselContent>
           </Carousel>
+
+          {/* Download Brochure button moved below the product images */}
+          <div className="mt-12 text-center">
+            <Button variant="secondary" size="lg" className="rounded-xl font-bold px-8 shadow-lg hover:shadow-secondary/20 transition-all">
+              <Download className="mr-2 h-5 w-5" />
+              Download Brochure
+            </Button>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
