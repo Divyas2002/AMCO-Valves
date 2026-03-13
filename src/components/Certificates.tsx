@@ -47,7 +47,6 @@ export function Certificates() {
             </p>
 
             <div className="space-y-12">
-              {/* Approvals Section */}
               <div>
                 <h4 className="text-xl font-bold text-primary mb-6 flex items-center gap-2">
                   Approvals & Certificates
@@ -62,7 +61,6 @@ export function Certificates() {
                 </ul>
               </div>
 
-              {/* Third Party Section */}
               <div className="p-8 rounded-[2.5rem] bg-primary/5 border border-primary/10">
                 <h4 className="text-xl font-bold text-primary mb-6 flex items-center gap-2">
                   <Search className="text-secondary" size={24} />
@@ -82,7 +80,6 @@ export function Certificates() {
             </div>
           </div>
 
-          {/* Logo Grid Section */}
           <div className="lg:sticky lg:top-32">
             <div className="grid grid-cols-2 gap-6">
               {certLogos.map((logo, idx) => (
@@ -102,7 +99,6 @@ export function Certificates() {
                 </div>
               ))}
               
-              {/* Recognition Box */}
               <div className="col-span-2 bg-primary p-8 rounded-[2.5rem] text-white shadow-xl shadow-primary/20 flex flex-col justify-center items-center text-center mt-2">
                 <h5 className="text-2xl font-bold mb-2">Global Quality Standards</h5>
                 <p className="text-white/60 text-sm max-w-sm">

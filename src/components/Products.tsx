@@ -31,9 +31,6 @@ const productData = [
   { id: "13", title: "Instrumentation Valve", specs: "High Precision", features: ["Small Bore", "Fine Control"] },
 ];
 
-/**
- * A sub-component to handle the nested image slider for each product card.
- */
 function ProductImageSlider({ productId, title }: { productId: string, title: string }) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
@@ -118,7 +115,6 @@ export function Products() {
           </p>
         </div>
 
-        {/* Grid layout for all products */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {productData.map((product) => (
             <Card key={product.id} className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 border-none bg-white rounded-[2rem] flex flex-col">
@@ -142,7 +138,6 @@ export function Products() {
           ))}
         </div>
 
-        {/* Feature Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
           {[
             { icon: Maximize, title: "Configurations", desc: "1, 2, 3 Piece Designs" },
@@ -169,7 +164,6 @@ export function Products() {
           ))}
         </div>
 
-        {/* Download Brochure button centered at the very bottom */}
         <div className="text-center">
           <Button variant="secondary" size="lg" className="rounded-xl font-bold px-8 shadow-lg hover:shadow-secondary/20 transition-all" asChild>
             <a href="/brochure.pdf" download="AMCO_Valves_Brochure.pdf">
