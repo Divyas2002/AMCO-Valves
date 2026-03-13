@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { ShieldCheck, Search, CheckCircle2 } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
