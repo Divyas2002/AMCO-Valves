@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import { ShieldCheck, Search, CheckCircle2 } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -93,7 +92,7 @@ export function Certificates() {
                       src={logo.imageUrl}
                       alt={logo.description}
                       fill
-                      className="object-contain p-8"
+                      className="object-contain p-12"
                       data-ai-hint={logo.imageHint}
                     />
                   )}
