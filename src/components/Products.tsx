@@ -118,44 +118,39 @@ export function Products() {
           </p>
         </div>
 
-        {/* Carousel Slider for products */}
-        <div className="mb-20">
-          <Carousel opts={{ align: "start", loop: true }} className="w-full">
-            <CarouselContent className="-ml-6">
-              {productData.map((product) => (
-                <CarouselItem key={product.id} className="pl-6 md:basis-1/2 lg:basis-1/4">
-                  <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 border-none bg-white rounded-[2rem] flex flex-col">
-                    <ProductImageSlider productId={product.id} title={product.title} />
-                    
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-xl font-bold text-primary line-clamp-1">{product.title}</CardTitle>
-                      <p className="text-secondary font-semibold text-xs line-clamp-1">{product.specs}</p>
-                    </CardHeader>
-                    <CardContent className="flex-grow">
-                      <ul className="space-y-2">
-                        {product.features.map((feature, i) => (
-                          <li key={i} className="flex items-center gap-2 text-foreground/70 text-xs">
-                            <div className="w-1 h-1 rounded-full bg-secondary shrink-0" />
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
-
-          {/* Download Brochure button moved below the product images */}
-          <div className="mt-12 text-center">
-            <Button variant="secondary" size="lg" className="rounded-xl font-bold px-8 shadow-lg hover:shadow-secondary/20 transition-all">
-              <Download className="mr-2 h-5 w-5" />
-              Download Brochure
-            </Button>
-          </div>
+        {/* Grid layout for all products */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          {productData.map((product) => (
+            <Card key={product.id} className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 border-none bg-white rounded-[2rem] flex flex-col">
+              <ProductImageSlider productId={product.id} title={product.title} />
+              
+              <CardHeader className="pb-2">
+                <CardTitle className="text-xl font-bold text-primary line-clamp-1">{product.title}</CardTitle>
+                <p className="text-secondary font-semibold text-xs line-clamp-1">{product.specs}</p>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                <ul className="space-y-2">
+                  {product.features.map((feature, i) => (
+                    <li key={i} className="flex items-center gap-2 text-foreground/70 text-xs">
+                      <div className="w-1 h-1 rounded-full bg-secondary shrink-0" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          ))}
         </div>
 
+        {/* Download Brochure button centered below the product grid */}
+        <div className="text-center mb-20">
+          <Button variant="secondary" size="lg" className="rounded-xl font-bold px-8 shadow-lg hover:shadow-secondary/20 transition-all">
+            <Download className="mr-2 h-5 w-5" />
+            Download Brochure
+          </Button>
+        </div>
+
+        {/* Feature Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             { icon: Maximize, title: "Configurations", desc: "1, 2, 3 Piece Designs" },
