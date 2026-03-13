@@ -106,24 +106,6 @@ function ProductImageSlider({ productId, title }: { productId: string, title: st
 }
 
 export function Products() {
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
-
-  const onSelect = useCallback(() => {
-    if (!api) return;
-    setCurrent(api.selectedScrollSnap());
-  }, [api]);
-
-  useEffect(() => {
-    if (!api) return;
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap());
-    api.on("select", onSelect);
-  }, [api, onSelect]);
-
-  const scrollTo = useCallback((index: number) => api?.scrollTo(index), [api]);
-
   return (
     <section id="products" className="py-24 bg-background">
       <div className="container mx-auto px-6">
@@ -135,57 +117,28 @@ export function Products() {
           </p>
         </div>
 
-        <div className="relative mb-20">
-          <Carousel
-            setApi={setApi}
-            opts={{
-              align: "start",
-              loop: true,
-              slidesToScroll: 4, 
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-4">
-              {productData.map((product) => (
-                <CarouselItem key={product.id} className="pl-4 md:basis-1/2 lg:basis-1/4">
-                  <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 border-none bg-white rounded-[2rem] flex flex-col">
-                    <ProductImageSlider productId={product.id} title={product.title} />
-                    
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-xl font-bold text-primary line-clamp-1">{product.title}</CardTitle>
-                      <p className="text-secondary font-semibold text-xs line-clamp-1">{product.specs}</p>
-                    </CardHeader>
-                    <CardContent className="flex-grow">
-                      <ul className="space-y-2">
-                        {product.features.map((feature, i) => (
-                          <li key={i} className="flex items-center gap-2 text-foreground/70 text-xs">
-                            <div className="w-1 h-1 rounded-full bg-secondary shrink-0" />
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
-
-          <div className="flex justify-center gap-2 mt-8">
-            {Array.from({ length: count }).map((_, i) => (
-              <button
-                key={i}
-                onClick={() => scrollTo(i)}
-                className={cn(
-                  "w-3 h-3 rounded-full transition-all duration-300",
-                  current === i 
-                    ? "bg-secondary w-8" 
-                    : "bg-secondary/20 hover:bg-secondary/40"
-                )}
-                aria-label={`Go to group ${i + 1}`}
-              />
-            ))}
-          </div>
+        {/* Grid Display for all products */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+          {productData.map((product) => (
+            <Card key={product.id} className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 border-none bg-white rounded-[2rem] flex flex-col">
+              <ProductImageSlider productId={product.id} title={product.title} />
+              
+              <CardHeader className="pb-2">
+                <CardTitle className="text-xl font-bold text-primary line-clamp-1">{product.title}</CardTitle>
+                <p className="text-secondary font-semibold text-xs line-clamp-1">{product.specs}</p>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                <ul className="space-y-2">
+                  {product.features.map((feature, i) => (
+                    <li key={i} className="flex items-center gap-2 text-foreground/70 text-xs">
+                      <div className="w-1 h-1 rounded-full bg-secondary shrink-0" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          ))}
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
