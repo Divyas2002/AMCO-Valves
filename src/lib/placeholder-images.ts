@@ -1,4 +1,3 @@
-
 export type ImagePlaceholder = {
   id: string;
   description: string;
@@ -96,6 +95,30 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
     "description": "AMCO Valves Certification",
     "imageUrl": "/iso2015.webp",
     "imageHint": "iso certification"
+  },
+  {
+    "id": "cert-iso",
+    "description": "ISO 9001 Logo",
+    "imageUrl": "/iso-9001.png",
+    "imageHint": "iso logo"
+  },
+  {
+    "id": "cert-tuv",
+    "description": "TUV Logo",
+    "imageUrl": "/tuv.webp",
+    "imageHint": "tuv logo"
+  },
+  {
+    "id": "cert-tata",
+    "description": "TATA Projects Logo",
+    "imageUrl": "/TATA-Projects-.png",
+    "imageHint": "tata logo"
+  },
+  {
+    "id": "cert-sgs",
+    "description": "SGS Logo",
+    "imageUrl": "/SGS.jpg",
+    "imageHint": "sgs logo"
   },
   {
     "id": "gallery-1",

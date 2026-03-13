@@ -3,7 +3,12 @@ import { ShieldCheck, Search, CheckCircle2 } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export function Certificates() {
-  const certImg = PlaceHolderImages.find(img => img.id === "certification-main");
+  const certLogos = [
+    PlaceHolderImages.find(img => img.id === "cert-iso"),
+    PlaceHolderImages.find(img => img.id === "cert-tuv"),
+    PlaceHolderImages.find(img => img.id === "cert-tata"),
+    PlaceHolderImages.find(img => img.id === "cert-sgs"),
+  ].filter(Boolean);
 
   const approvals = [
     "ISO 9001:2015",
@@ -77,28 +82,32 @@ export function Certificates() {
             </div>
           </div>
 
-          {/* Image Section */}
-          <div className="lg:sticky lg:top-32 space-y-8">
-            <div className="relative w-full aspect-[1.8/1] rounded-[3rem] overflow-hidden shadow-2xl transition-transform hover:scale-[1.01] duration-500 border-8 border-white bg-white">
-              {certImg && (
-                <Image
-                  src={certImg.imageUrl}
-                  alt={certImg.description}
-                  fill
-                  className="object-contain p-2"
-                  data-ai-hint={certImg.imageHint}
-                />
-              )}
-            </div>
-            
+          {/* Logo Grid Section */}
+          <div className="lg:sticky lg:top-32">
             <div className="grid grid-cols-2 gap-6">
-              <div className="bg-secondary p-8 rounded-[2.5rem] text-white shadow-xl shadow-secondary/20">
-                <h5 className="text-3xl font-bold mb-1">API 6D</h5>
-                <p className="text-white/70 text-xs font-bold uppercase tracking-widest">Licensed Mfg.</p>
-              </div>
-              <div className="bg-primary p-8 rounded-[2.5rem] text-white shadow-xl shadow-primary/20">
-                <h5 className="text-3xl font-bold mb-1">ISO</h5>
-                <p className="text-white/70 text-xs font-bold uppercase tracking-widest">9001:2015 Registered</p>
+              {certLogos.map((logo, idx) => (
+                <div 
+                  key={logo?.id || idx} 
+                  className="relative aspect-square rounded-[2.5rem] bg-white border border-border shadow-sm overflow-hidden p-6 flex items-center justify-center hover:shadow-lg hover:border-secondary/20 transition-all duration-300"
+                >
+                  {logo && (
+                    <Image
+                      src={logo.imageUrl}
+                      alt={logo.description}
+                      fill
+                      className="object-contain p-8"
+                      data-ai-hint={logo.imageHint}
+                    />
+                  )}
+                </div>
+              ))}
+              
+              {/* Recognition Box */}
+              <div className="col-span-2 bg-primary p-8 rounded-[2.5rem] text-white shadow-xl shadow-primary/20 flex flex-col justify-center items-center text-center mt-2">
+                <h5 className="text-2xl font-bold mb-2">Global Quality Standards</h5>
+                <p className="text-white/60 text-sm max-w-sm">
+                  Meeting and exceeding international requirements for industrial safety and engineering performance.
+                </p>
               </div>
             </div>
           </div>
