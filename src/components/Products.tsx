@@ -197,11 +197,19 @@ export function Products() {
           ].map((item, idx) => (
             <div 
               key={idx} 
-              className="bg-white p-8 rounded-[2rem] text-primary border border-border flex flex-col gap-4 shadow-sm hover:bg-secondary hover:text-white transition-all duration-300 group"
+              className={cn(
+                "p-8 rounded-[2rem] border border-border flex flex-col gap-4 shadow-sm transition-all duration-300 group",
+                item.title === "Configurations" 
+                  ? "bg-[#09193E] text-white hover:bg-secondary" 
+                  : "bg-white text-primary hover:bg-secondary hover:text-white"
+              )}
             >
               <item.icon size={32} className="text-secondary group-hover:text-white transition-colors" />
               <h4 className="text-lg font-bold">{item.title}</h4>
-              <p className="text-foreground/60 text-sm group-hover:text-white/90">{item.desc}</p>
+              <p className={cn(
+                "text-sm group-hover:text-white/90",
+                item.title === "Configurations" ? "text-white/70" : "text-foreground/60"
+              )}>{item.desc}</p>
             </div>
           ))}
         </div>
