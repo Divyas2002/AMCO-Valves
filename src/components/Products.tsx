@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { Settings, Maximize, Layers, Gauge, Download } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
@@ -92,12 +91,6 @@ function ProductImageSlider({ productId, title }: { productId: string, title: st
             aria-label={`Go to slide ${i + 1}`}
           />
         ))}
-      </div>
-
-      <div className="absolute top-4 left-4 z-10">
-        <Badge variant="secondary" className="px-4 py-1.5 font-bold uppercase tracking-wider text-[10px]">
-          Industrial
-        </Badge>
       </div>
     </div>
   );
