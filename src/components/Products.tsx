@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { Settings, Maximize, Layers, Gauge } from "lucide-react";
+import { Settings, Maximize, Layers, Gauge, Download } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
   Carousel, 
@@ -112,33 +113,43 @@ export function Products() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-secondary font-bold text-sm uppercase tracking-widest mb-3">Product Portfolio</h2>
           <h3 className="text-3xl md:text-5xl font-bold text-primary mb-6">Our Valve Solutions</h3>
-          <p className="text-foreground/70">
+          <p className="text-foreground/70 mb-8">
             Discover our comprehensive range of 13 precision-engineered Ball Valves designed for the world's most demanding industrial environments.
           </p>
+          <Button variant="secondary" size="lg" className="rounded-xl font-bold px-8 shadow-lg hover:shadow-secondary/20 transition-all">
+            <Download className="mr-2 h-5 w-5" />
+            Download Brochure
+          </Button>
         </div>
 
-        {/* Grid Display for all products */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-          {productData.map((product) => (
-            <Card key={product.id} className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 border-none bg-white rounded-[2rem] flex flex-col">
-              <ProductImageSlider productId={product.id} title={product.title} />
-              
-              <CardHeader className="pb-2">
-                <CardTitle className="text-xl font-bold text-primary line-clamp-1">{product.title}</CardTitle>
-                <p className="text-secondary font-semibold text-xs line-clamp-1">{product.specs}</p>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <ul className="space-y-2">
-                  {product.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-2 text-foreground/70 text-xs">
-                      <div className="w-1 h-1 rounded-full bg-secondary shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          ))}
+        {/* Carousel Slider for products */}
+        <div className="mb-20">
+          <Carousel opts={{ align: "start", loop: true }} className="w-full">
+            <CarouselContent className="-ml-6">
+              {productData.map((product) => (
+                <CarouselItem key={product.id} className="pl-6 md:basis-1/2 lg:basis-1/4">
+                  <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 border-none bg-white rounded-[2rem] flex flex-col">
+                    <ProductImageSlider productId={product.id} title={product.title} />
+                    
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-xl font-bold text-primary line-clamp-1">{product.title}</CardTitle>
+                      <p className="text-secondary font-semibold text-xs line-clamp-1">{product.specs}</p>
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                      <ul className="space-y-2">
+                        {product.features.map((feature, i) => (
+                          <li key={i} className="flex items-center gap-2 text-foreground/70 text-xs">
+                            <div className="w-1 h-1 rounded-full bg-secondary shrink-0" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
