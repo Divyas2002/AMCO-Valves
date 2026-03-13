@@ -119,7 +119,7 @@ export function Products() {
         </div>
 
         {/* Grid layout for all products */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {productData.map((product) => (
             <Card key={product.id} className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 border-none bg-white rounded-[2rem] flex flex-col">
               <ProductImageSlider productId={product.id} title={product.title} />
@@ -142,16 +142,8 @@ export function Products() {
           ))}
         </div>
 
-        {/* Download Brochure button centered below the product grid */}
-        <div className="text-center mb-20">
-          <Button variant="secondary" size="lg" className="rounded-xl font-bold px-8 shadow-lg hover:shadow-secondary/20 transition-all">
-            <Download className="mr-2 h-5 w-5" />
-            Download Brochure
-          </Button>
-        </div>
-
         {/* Feature Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
           {[
             { icon: Maximize, title: "Configurations", desc: "1, 2, 3 Piece Designs" },
             { icon: Layers, title: "Connections", desc: "Threaded, Weld, Flanged" },
@@ -175,6 +167,14 @@ export function Products() {
               )}>{item.desc}</p>
             </div>
           ))}
+        </div>
+
+        {/* Download Brochure button centered at the very bottom */}
+        <div className="text-center">
+          <Button variant="secondary" size="lg" className="rounded-xl font-bold px-8 shadow-lg hover:shadow-secondary/20 transition-all">
+            <Download className="mr-2 h-5 w-5" />
+            Download Brochure
+          </Button>
         </div>
       </div>
     </section>
