@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -24,7 +23,7 @@ export function Gallery() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {galleryImages.slice(0, 4).map((image) => (
+          {galleryImages.map((image) => (
             <div
               key={image.id}
               className="relative aspect-[1.3/1] rounded-[2.5rem] overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.03] group border-4 border-white/5"

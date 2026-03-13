@@ -119,5 +119,29 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
     "description": "Finished ball valves ready for shipping",
     "imageUrl": "/gallery-4.jpg",
     "imageHint": "quality control"
+  },
+  {
+    "id": "gallery-5",
+    "description": "Industrial valve storage",
+    "imageUrl": "https://picsum.photos/seed/g5/800/600",
+    "imageHint": "valve storage"
+  },
+  {
+    "id": "gallery-6",
+    "description": "Pipeline installation",
+    "imageUrl": "https://picsum.photos/seed/g6/800/600",
+    "imageHint": "industrial pipeline"
+  },
+  {
+    "id": "gallery-7",
+    "description": "Advanced metal fabrication",
+    "imageUrl": "https://picsum.photos/seed/g7/800/600",
+    "imageHint": "metal manufacturing"
+  },
+  {
+    "id": "gallery-8",
+    "description": "Final quality inspection",
+    "imageUrl": "https://picsum.photos/seed/g8/800/600",
+    "imageHint": "quality inspection"
   }
 ];
