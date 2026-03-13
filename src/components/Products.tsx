@@ -47,6 +47,11 @@ function ProductImageSlider({ productId, title }: { productId: string, title: st
     setCurrent(api.selectedScrollSnap());
   }, [api]);
 
+  const scrollTo = useCallback((index: number) => {
+    if (!api) return;
+    api.scrollTo(index);
+  }, [api]);
+
   useEffect(() => {
     if (!api) return;
     setCount(api.scrollSnapList().length);
@@ -77,14 +82,16 @@ function ProductImageSlider({ productId, title }: { productId: string, title: st
       
       <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-10">
         {Array.from({ length: count }).map((_, i) => (
-          <div
+          <button
             key={i}
+            onClick={() => scrollTo(i)}
             className={cn(
               "w-1.5 h-1.5 rounded-full transition-all duration-300",
               current === i 
                 ? "bg-white scale-125" 
                 : "bg-white/40"
             )}
+            aria-label={`Go to slide ${i + 1}`}
           />
         ))}
       </div>
