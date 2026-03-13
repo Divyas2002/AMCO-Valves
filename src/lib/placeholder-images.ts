@@ -1,4 +1,3 @@
-
 export type ImagePlaceholder = {
   id: string;
   description: string;
@@ -100,7 +99,7 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
   {
     "id": "cert-iso",
     "description": "ISO 9001 Logo",
-    "imageUrl": "/iso-9001.png",
+    "imageUrl": "/ISO-Certification.png",
     "imageHint": "iso logo"
   },
   {
