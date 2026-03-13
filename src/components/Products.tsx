@@ -171,9 +171,11 @@ export function Products() {
 
         {/* Download Brochure button centered at the very bottom */}
         <div className="text-center">
-          <Button variant="secondary" size="lg" className="rounded-xl font-bold px-8 shadow-lg hover:shadow-secondary/20 transition-all">
-            <Download className="mr-2 h-5 w-5" />
-            Download Brochure
+          <Button variant="secondary" size="lg" className="rounded-xl font-bold px-8 shadow-lg hover:shadow-secondary/20 transition-all" asChild>
+            <a href="/brochure.pdf" download="AMCO_Valves_Brochure.pdf">
+              <Download className="mr-2 h-5 w-5" />
+              Download Brochure
+            </a>
           </Button>
         </div>
       </div>
