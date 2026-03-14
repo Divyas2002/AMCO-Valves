@@ -1,9 +1,19 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { X, Maximize2 } from "lucide-react";
+import { PlaceHolderImages, type ImagePlaceholder } from "@/lib/placeholder-images";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 export function Gallery() {
+  const [selectedImage, setSelectedImage] = useState<ImagePlaceholder | null>(null);
+  
   // Filter for gallery images defined in placeholder-images.json
   const galleryImages = PlaceHolderImages.filter(img => img.id.startsWith("gallery-"));
 
@@ -24,9 +34,10 @@ export function Gallery() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {galleryImages.map((image) => (
-            <div
+            <button
               key={image.id}
-              className="relative aspect-[1.3/1] rounded-[2.5rem] overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.03] group border-4 border-white/5"
+              onClick={() => setSelectedImage(image)}
+              className="relative aspect-[1.3/1] rounded-[2.5rem] overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.03] group border-4 border-white/5 text-left focus:outline-none focus:ring-2 focus:ring-secondary/50"
             >
               <Image
                 src={image.imageUrl}
@@ -35,10 +46,41 @@ export function Gallery() {
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
                 data-ai-hint={image.imageHint}
               />
-            </div>
+              <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="bg-white/20 backdrop-blur-md p-4 rounded-full text-white">
+                  <Maximize2 size={24} />
+                </div>
+              </div>
+            </button>
           ))}
         </div>
       </div>
+
+      {/* Lightbox Dialog */}
+      <Dialog open={!!selectedImage} onOpenChange={(open) => !open && setSelectedImage(null)}>
+        <DialogContent className="max-w-[95vw] max-h-[90vh] p-0 border-none bg-transparent shadow-none flex items-center justify-center overflow-hidden">
+          <DialogTitle className="sr-only">
+            {selectedImage?.description || "Gallery Image View"}
+          </DialogTitle>
+          
+          <div className="relative w-full h-full flex items-center justify-center p-4 md:p-12">
+            {selectedImage && (
+              <div className="relative w-full max-w-5xl aspect-video md:aspect-[1.6/1] rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10 animate-in zoom-in-95 duration-300">
+                <Image
+                  src={selectedImage.imageUrl}
+                  alt={selectedImage.description}
+                  fill
+                  className="object-contain bg-black/20"
+                  priority
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                  <p className="text-white text-lg font-medium">{selectedImage.description}</p>
+                </div>
+              </div>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
