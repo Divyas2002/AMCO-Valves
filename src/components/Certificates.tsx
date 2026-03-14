@@ -101,7 +101,7 @@ export function Certificates() {
 
               <div className="col-span-2 bg-primary p-6 md:p-8 rounded-[2rem] text-white shadow-xl shadow-primary/20 flex flex-col justify-center items-center text-center">
                 <h5 className="text-lg md:text-xl font-bold mb-2">Global Quality Standards</h5>
-                <p className="text-white/80 text-[11px] md:text-xs max-w-xs">
+                <p className="text-white text-[11px] md:text-xs max-w-xs">
                   Meeting and exceeding international requirements for industrial safety and engineering performance.
                 </p>
               </div>
