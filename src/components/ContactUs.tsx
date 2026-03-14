@@ -26,45 +26,64 @@ export function ContactUs() {
     
     const targetEmail = "divya126bca@gmail.com";
     const formData = new FormData(e.target as HTMLFormElement);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const phone = formData.get("phone") as string;
+    const messageContent = formData.get("message") as string;
     
+    // Structured for "Trigger Email" Firebase Extension
     const submissionData = {
-      name: formData.get("name") as string,
-      email: formData.get("email") as string,
-      phone: formData.get("phone") as string,
-      message: formData.get("message") as string,
+      to: targetEmail,
+      message: {
+        subject: `New Inquiry from ${name}`,
+        html: `
+          <h3>New Website Inquiry</h3>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phone}</p>
+          <p><strong>Message:</strong></p>
+          <p>${messageContent}</p>
+          <br>
+          <p><em>Submitted via AMCO Valves Contact Form</em></p>
+        `,
+      },
+      metadata: {
+        name,
+        email,
+        phone,
+        message: messageContent,
+      },
       submittedAt: serverTimestamp(),
       status: "New",
-      emailSent: false,
-      recipient: targetEmail
     };
 
     try {
-      // Ensure the user is signed in (anonymously) to satisfy security rules
       if (!user) {
         await signInAnonymously(auth);
       }
 
-      // Add document to the 'contactSubmissions' collection
-      await addDoc(collection(db, "contactSubmissions"), submissionData);
+      // We do not await this to allow for optimistic UI updates, 
+      // but we handle errors via .catch() for the permission emitter.
+      addDoc(collection(db, "contactSubmissions"), submissionData)
+        .catch(async (error) => {
+          const permissionError = new FirestorePermissionError({
+            path: "contactSubmissions",
+            operation: "create",
+            requestResourceData: submissionData,
+          });
+          errorEmitter.emit("permission-error", permissionError);
+        });
 
       toast({
         title: "Inquiry Sent",
-        description: `Thank you for reaching out. Your message has been saved and we will get back to you soon.`,
+        description: `Thank you for reaching out. We will get back to you at ${email} soon.`,
       });
       (e.target as HTMLFormElement).reset();
     } catch (error: any) {
-      // Handle permission errors gracefully for the agentive loop
-      const permissionError = new FirestorePermissionError({
-        path: "contactSubmissions",
-        operation: "create",
-        requestResourceData: submissionData,
-      });
-      errorEmitter.emit("permission-error", permissionError);
-
       toast({
         variant: "destructive",
         title: "Submission Error",
-        description: "We couldn't save your inquiry. Please try again later.",
+        description: "We couldn't process your inquiry. Please check your connection.",
       });
     } finally {
       setIsSubmitting(false);
