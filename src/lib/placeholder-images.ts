@@ -165,7 +165,7 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
   {
     "id": "gallery-8",
     "description": "Final quality inspection",
-    "imageUrl": "/Gallery-img-8.jpg",
+    "imageUrl": "/Gallery-image-8.jpg",
     "imageHint": "quality inspection"
   }
 ];
