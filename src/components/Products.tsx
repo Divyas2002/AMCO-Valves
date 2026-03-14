@@ -133,7 +133,7 @@ export function Products() {
           {/* Brochure Card */}
           <div className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(75%-1.5rem)] relative h-[250px] mt-10">
             <div 
-              className="h-full relative flex flex-col items-center justify-center py-6 px-10 bg-primary rounded-[2rem] text-white shadow-xl transition-all duration-500 group overflow-hidden gap-6"
+              className="h-full relative flex flex-col items-center justify-center py-6 px-10 bg-primary rounded-[2rem] text-white shadow-xl transition-all duration-500 group overflow-hidden gap-8"
             >
               <div className="absolute inset-0 bg-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
