@@ -156,7 +156,7 @@ export function Products() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-16 md:mb-20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {[
             { icon: Maximize, title: "Configurations", desc: "1, 2, 3 Piece Designs" },
             { icon: Layers, title: "Connections", desc: "Threaded, Weld, Flanged" },
