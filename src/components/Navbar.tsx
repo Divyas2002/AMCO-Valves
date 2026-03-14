@@ -35,8 +35,8 @@ export function Navbar() {
       )}
     >
       <div className="max-w-7xl mx-auto flex items-start justify-between">
-        {/* Logo Container */}
-        <div className="bg-white px-4 py-2 rounded-lg shadow-md transition-all duration-300">
+        {/* Logo Container - Background and Shadow Removed */}
+        <div className="transition-all duration-300">
           <Link href="/" className="flex items-center group">
             <div className="relative w-24 h-12 md:w-28 md:h-14 transition-transform group-hover:scale-105">
               <Image
