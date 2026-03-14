@@ -74,7 +74,7 @@ export function Hero() {
           </div>
 
           {/* Stats Section with Counter Animation */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 pt-8 md:pt-12 border-t border-black/5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 pt-8 md:pt-12 pb-12 md:pb-0 border-t border-black/5">
             {[
               { icon: Zap, end: 200, label: "Projects Completed" },
               { icon: Users, end: 300, label: "Happy Customers" },
