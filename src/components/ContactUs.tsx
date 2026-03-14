@@ -1,42 +1,74 @@
-
 "use client";
 
 import { useState } from "react";
-import { MapPin, Phone, Mail, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Send, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { useFirestore, useAuth, useUser } from "@/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { signInAnonymously } from "firebase/auth";
+import { errorEmitter } from "@/firebase/error-emitter";
+import { FirestorePermissionError } from "@/firebase/errors";
 
 export function ContactUs() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const db = useFirestore();
+  const auth = useAuth();
+  const { user } = useUser();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return;
     setIsSubmitting(true);
     
-    // Target recipient email provided by user
     const targetEmail = "divya126bca@gmail.com";
-    
     const formData = new FormData(e.target as HTMLFormElement);
-    const data = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      phone: formData.get("phone"),
-      message: formData.get("message"),
+    
+    const submissionData = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      phone: formData.get("phone") as string,
+      message: formData.get("message") as string,
+      submittedAt: serverTimestamp(),
+      status: "New",
+      emailSent: false,
       recipient: targetEmail
     };
 
-    // Simulate the email sending process
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // Ensure the user is signed in (anonymously) to satisfy security rules
+      if (!user) {
+        await signInAnonymously(auth);
+      }
+
+      // Add document to the 'contactSubmissions' collection
+      await addDoc(collection(db, "contactSubmissions"), submissionData);
+
       toast({
         title: "Inquiry Sent",
-        description: `Thank you for reaching out. Your inquiry has been successfully sent to ${targetEmail}.`,
+        description: `Thank you for reaching out. Your message has been saved and we will get back to you soon.`,
       });
       (e.target as HTMLFormElement).reset();
-    }, 1500);
+    } catch (error: any) {
+      // Handle permission errors gracefully for the agentive loop
+      const permissionError = new FirestorePermissionError({
+        path: "contactSubmissions",
+        operation: "create",
+        requestResourceData: submissionData,
+      });
+      errorEmitter.emit("permission-error", permissionError);
+
+      toast({
+        variant: "destructive",
+        title: "Submission Error",
+        description: "We couldn't save your inquiry. Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -112,8 +144,17 @@ export function ContactUs() {
                 <Textarea name="message" required placeholder="How can we help you?" className="bg-background border-none min-h-[150px] focus-visible:ring-secondary resize-none" />
               </div>
               <Button type="submit" className="w-full h-14 text-lg font-bold" variant="secondary" disabled={isSubmitting}>
-                {isSubmitting ? "Sending..." : "Send Message"}
-                <Send className="ml-2" size={20} />
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="mr-2 animate-spin" size={20} />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <Send className="ml-2" size={20} />
+                  </>
+                )}
               </Button>
             </form>
           </div>

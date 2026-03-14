@@ -131,15 +131,14 @@ export function Products() {
           ))}
 
           {/* Brochure Card */}
-          <div className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(75%-1.5rem)] relative h-[300px] mt-10">
+          <div className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(75%-1.5rem)] relative h-[250px] mt-10">
             <div 
-              className="h-full relative flex flex-col items-center justify-center py-8 px-10 bg-primary rounded-[2rem] text-white shadow-xl transition-all duration-500 group overflow-hidden gap-6"
+              className="h-full relative flex flex-col items-center justify-center py-6 px-10 bg-primary rounded-[2rem] text-white shadow-xl transition-all duration-500 group overflow-hidden gap-6"
             >
-              {/* Subtle glow effect on hover */}
               <div className="absolute inset-0 bg-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="relative z-10 w-full text-center">
-                <h4 className="text-[32px] font-bold leading-tight">
+                <h4 className="text-[28px] md:text-[32px] font-bold leading-tight">
                   Get our complete product catalog with technical specifications
                 </h4>
               </div>
@@ -148,7 +147,7 @@ export function Products() {
                 <a 
                   href="/brochure.pdf" 
                   download="AMCO_Valves_Brochure.pdf"
-                  className="inline-flex items-center gap-3 bg-secondary px-10 py-3.5 rounded-2xl font-bold text-lg shadow-xl shadow-secondary/20 hover:bg-secondary/90 transition-all hover:translate-y-[-2px]"
+                  className="inline-flex items-center gap-3 bg-secondary px-10 py-3 rounded-2xl font-bold text-lg shadow-xl shadow-secondary/20 hover:bg-secondary/90 transition-all hover:translate-y-[-2px]"
                 >
                   <Download size={24} />
                   Download Full Brochure
