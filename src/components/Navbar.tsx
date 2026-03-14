@@ -37,19 +37,22 @@ export function Navbar() {
   }, [isOpen]);
 
   return (
-    <nav
-      className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-700 ease-in-out px-4 md:px-12 border-b",
-        scrolled 
-          ? "py-2 md:py-3 bg-white/95 backdrop-blur-md shadow-md border-border" 
-          : "py-4 md:py-6 bg-transparent border-transparent"
-      )}
-    >
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Logo Container */}
-        <div className="transition-all duration-500 ease-in-out">
+    <>
+      <nav
+        className={cn(
+          "fixed top-0 w-full z-50 transition-all duration-500 ease-in-out px-4 md:px-12 border-b",
+          scrolled 
+            ? "py-2 md:py-3 bg-white/95 backdrop-blur-md shadow-md border-border" 
+            : "py-4 md:py-6 bg-transparent border-transparent"
+        )}
+      >
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          {/* Logo Container */}
           <Link href="/" className="flex items-center group">
-            <div className="relative w-20 h-10 md:w-28 md:h-14 transition-transform group-hover:scale-105">
+            <div className={cn(
+              "relative transition-all duration-500",
+              "w-[140px] h-[70px] md:w-28 md:h-14"
+            )}>
               <Image
                 src="/amco-logo.jpg"
                 alt="AMCO Valves Logo"
@@ -59,100 +62,111 @@ export function Navbar() {
               />
             </div>
           </Link>
-        </div>
 
-        {/* Desktop Nav Container */}
-        <div className={cn(
-          "hidden md:flex items-center gap-8 transition-all duration-700 ease-in-out",
-          scrolled 
-            ? "bg-transparent shadow-none border-transparent px-0 py-0 rounded-none" 
-            : "bg-white px-8 py-3 rounded-2xl rounded-bl-[40px] shadow-lg border border-white/20"
-        )}>
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="text-[16px] font-extrabold text-primary transition-colors hover:text-secondary whitespace-nowrap"
+          {/* Desktop Nav Container */}
+          <div className={cn(
+            "hidden md:flex items-center gap-8 transition-all duration-300",
+            scrolled 
+              ? "bg-transparent shadow-none" 
+              : "bg-white px-8 py-3 rounded-2xl shadow-lg border border-white/20"
+          )}>
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="text-[16px] font-bold text-primary transition-colors hover:text-secondary whitespace-nowrap"
+              >
+                {link.name}
+              </Link>
+            ))}
+            <Button variant="secondary" size="sm" className="rounded-xl font-bold px-6 h-10 text-[16px]" asChild>
+              <Link href="#contact">Get a Quote</Link>
+            </Button>
+          </div>
+
+          {/* Mobile Toggle */}
+          <div className="md:hidden">
+            <button
+              className={cn(
+                "p-2 rounded-xl transition-all duration-300 text-primary",
+                scrolled 
+                  ? "bg-primary/5" 
+                  : "bg-white shadow-md border-white/20 border"
+              )}
+              onClick={() => setIsOpen(true)}
             >
-              {link.name}
-            </Link>
-          ))}
-          <Button variant="secondary" size="sm" className="rounded-xl font-extrabold px-6 h-10 text-[16px]" asChild>
-            <Link href="#contact">Get a Quote</Link>
-          </Button>
+              <Menu className="size-8" />
+            </button>
+          </div>
         </div>
+      </nav>
 
-        {/* Mobile Toggle */}
-        <div className="md:hidden">
-          <button
-            className={cn(
-              "p-2 rounded-xl transition-all duration-500 ease-in-out text-primary",
-              scrolled 
-                ? "bg-primary/5" 
-                : "bg-white shadow-md border-white/20 border"
-            )}
-            onClick={() => setIsOpen(true)}
-          >
-            <Menu className="size-9" />
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Drawer Backdrop */}
+      {/* Mobile Menu Overlay System */}
       <div
         className={cn(
-          "fixed inset-0 bg-black/50 z-[60] transition-opacity duration-300 md:hidden",
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        )}
-        onClick={() => setIsOpen(false)}
-      />
-
-      {/* Mobile Drawer Content */}
-      <div
-        className={cn(
-          "fixed top-0 right-0 w-[80vw] h-full bg-white z-[70] md:hidden transition-transform duration-500 ease-in-out shadow-2xl flex flex-col",
-          isOpen ? "translate-x-0" : "translate-x-full"
+          "fixed inset-0 z-[100] md:hidden transition-all duration-500",
+          isOpen ? "visible" : "invisible"
         )}
       >
-        {/* Header with Logo and Close */}
-        <div className="p-6 flex items-center justify-between border-b border-border">
-          <div className="relative w-24 h-12">
-            <Image
-              src="/amco-logo.jpg"
-              alt="AMCO Valves Logo"
-              fill
-              className="object-contain"
-            />
-          </div>
-          <button 
-            onClick={() => setIsOpen(false)}
-            className="text-primary p-2"
-          >
-            <X className="size-8" />
-          </button>
-        </div>
+        {/* Backdrop - Opaque with blur */}
+        <div
+          className={cn(
+            "absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-500",
+            isOpen ? "opacity-100" : "opacity-0"
+          )}
+          onClick={() => setIsOpen(false)}
+        />
 
-        {/* Navigation Links */}
-        <div className="flex flex-col py-4">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
+        {/* Drawer Content - Solid White Background */}
+        <div
+          className={cn(
+            "absolute top-0 right-0 w-[80vw] max-w-[320px] h-full bg-white shadow-2xl transition-transform duration-500 ease-out flex flex-col",
+            isOpen ? "translate-x-0" : "translate-x-full"
+          )}
+        >
+          {/* Drawer Header */}
+          <div className="p-6 flex items-center justify-between border-b border-border bg-white sticky top-0 z-10">
+            <div className="relative w-24 h-12">
+              <Image
+                src="/amco-logo.jpg"
+                alt="AMCO Valves Logo"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <button 
               onClick={() => setIsOpen(false)}
-              className="px-8 py-5 text-xl font-bold text-primary uppercase border-b border-border last:border-0 hover:bg-muted/30 transition-colors"
+              className="text-primary p-2 hover:bg-muted rounded-full transition-colors"
             >
-              {link.name}
-            </Link>
-          ))}
-        </div>
+              <X className="size-8" />
+            </button>
+          </div>
 
-        {/* Footer in Drawer */}
-        <div className="mt-auto p-8 border-t border-border">
-          <Button variant="secondary" size="lg" className="w-full rounded-xl font-bold uppercase tracking-wider" asChild onClick={() => setIsOpen(false)}>
-            <Link href="#contact">Contact Us</Link>
-          </Button>
+          {/* Scrollable Link List */}
+          <div className="flex-1 overflow-y-auto py-4 bg-white">
+            <div className="flex flex-col">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="px-8 py-5 text-xl font-bold text-primary uppercase border-b border-border/50 hover:bg-muted/50 transition-all flex items-center justify-between group"
+                >
+                  {link.name}
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity text-secondary">→</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Drawer Footer */}
+          <div className="p-8 border-t border-border bg-white mt-auto">
+            <Button variant="secondary" size="lg" className="w-full h-14 rounded-xl font-bold uppercase tracking-wider shadow-lg" asChild onClick={() => setIsOpen(false)}>
+              <Link href="#contact">Contact Us</Link>
+            </Button>
+          </div>
         </div>
       </div>
-    </nav>
+    </>
   );
 }
