@@ -130,8 +130,8 @@ export function Products() {
             </Card>
           ))}
 
-          {/* Brochure Card integrated into grid */}
-          <div className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(75%-1.5rem)] relative">
+          {/* Brochure Card */}
+          <div className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(75%-1.5rem)] relative h-[300px]">
             <div 
               className="h-full relative flex flex-col items-center justify-center py-8 px-10 bg-primary rounded-[2rem] text-white shadow-xl transition-all duration-500 group overflow-hidden gap-6"
             >
