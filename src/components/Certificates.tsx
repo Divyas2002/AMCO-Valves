@@ -68,14 +68,14 @@ export function Certificates() {
               {certLogos.map((logo, idx) => (
                 <div 
                   key={logo?.id || idx} 
-                  className="relative aspect-[1.8/1] rounded-[1.5rem] bg-white border border-border shadow-sm overflow-hidden p-3 flex items-center justify-center hover:shadow-lg hover:border-secondary/20 transition-all duration-300"
+                  className="relative h-[110px] md:h-auto md:aspect-[1.8/1] rounded-[1.5rem] bg-white border border-border shadow-sm overflow-hidden p-3 flex items-center justify-center hover:shadow-lg hover:border-secondary/20 transition-all duration-300"
                 >
                   {logo && (
                     <Image
                       src={logo.imageUrl}
                       alt={logo.description}
                       fill
-                      className="object-contain p-8 md:p-10"
+                      className="object-contain p-4 md:p-10"
                       data-ai-hint={logo.imageHint}
                     />
                   )}
