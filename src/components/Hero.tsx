@@ -50,7 +50,7 @@ export function Hero() {
         <div className="max-w-3xl animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
           {/* Custom Badge */}
           <div className="inline-flex items-center gap-2 bg-secondary/10 border border-secondary/20 text-secondary px-4 py-2 rounded-full mb-6 md:mb-8">
-            <ShieldCheck size={16} className="md:size-[18px]" />
+            <ShieldCheck className="size-5 md:size-[18px]" />
             <span className="text-[10px] md:text-xs font-bold tracking-[0.1em] uppercase">Precision Engineered Solutions</span>
           </div>
 
@@ -58,11 +58,11 @@ export function Hero() {
             Pioneering the <br className="hidden md:block" /> Future of <br className="hidden md:block" /> <span className="text-secondary">Industrial Flow</span>
           </h1>
           
-          <p className="text-base md:text-xl text-foreground/70 mb-8 md:text-lg lg:text-xl md:mb-10 max-w-xl leading-relaxed">
+          <p className="text-base md:text-xl text-foreground/70 mb-4 md:text-lg lg:text-xl md:mb-4 max-w-xl leading-relaxed">
             AMCO Valves delivers world-class ball valve solutions designed for extreme environments. Reliability, durability, and engineering excellence in every piece.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-4 md:mb-6">
+          <div className="flex flex-col sm:flex-row gap-4 mb-4 md:mb-4">
             <Button variant="secondary" size="lg" className="h-12 md:h-14 px-8 md:px-10 text-base md:text-lg rounded-xl font-bold" asChild>
               <Link href="#products">
                 Explore Catalog <ArrowRight className="ml-2" />
@@ -74,7 +74,7 @@ export function Hero() {
           </div>
 
           {/* Stats Section with Counter Animation */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 pt-6 md:pt-8 pb-12 md:pb-0 border-t border-black/5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 pt-8 md:pt-12 pb-12 md:pb-0 border-t border-black/5">
             {[
               { icon: Zap, end: 200, label: "Projects Completed" },
               { icon: Users, end: 300, label: "Happy Customers" },
@@ -82,7 +82,7 @@ export function Hero() {
             ].map((stat, i) => (
               <div key={i} className="flex items-center gap-4">
                 <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-secondary">
-                  <stat.icon size={32} className="md:size-9" />
+                  <stat.icon className="size-11 md:size-9" />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-primary font-bold text-2xl md:text-3xl leading-none mb-1">

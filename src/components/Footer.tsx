@@ -25,7 +25,7 @@ export function Footer() {
             <div className="flex gap-4">
               {[Linkedin, Twitter, Facebook].map((Icon, idx) => (
                 <Link key={idx} href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-secondary transition-colors">
-                  <Icon className="size-[22px] md:size-[18px]" />
+                  <Icon className="size-7 md:size-[18px]" />
                 </Link>
               ))}
             </div>
@@ -58,25 +58,25 @@ export function Footer() {
             <h4 className="font-bold text-lg mb-6 text-white">Contact Us</h4>
             <ul className="space-y-5 text-white/60 text-sm">
               <li className="flex gap-3">
-                <MapPin className="text-secondary shrink-0 size-[22px] md:size-[18px]" />
+                <MapPin className="text-secondary shrink-0 size-7 md:size-[18px]" />
                 <span>
                   <strong>Factory:</strong><br />
                   638/A Tiruvottriyur high road, Ajax, Chennai, 600019
                 </span>
               </li>
               <li className="flex gap-3">
-                <MapPin className="text-secondary shrink-0 size-[22px] md:size-[18px]" />
+                <MapPin className="text-secondary shrink-0 size-7 md:size-[18px]" />
                 <span>
                   <strong>Warehouse:</strong><br />
                   104-A East Mada church street, Royapuram, Chennai, 600013
                 </span>
               </li>
               <li className="flex gap-3">
-                <Phone className="text-secondary shrink-0 size-[22px] md:size-[18px]" />
+                <Phone className="text-secondary shrink-0 size-7 md:size-[18px]" />
                 <span>91-9841114671</span>
               </li>
               <li className="flex gap-3">
-                <Mail className="text-secondary shrink-0 size-[22px] md:size-[18px]" />
+                <Mail className="text-secondary shrink-0 size-7 md:size-[18px]" />
                 <Link href="mailto:contact@amcovalves.com" className="hover:text-secondary transition-colors">
                   contact@amcovalves.com
                 </Link>

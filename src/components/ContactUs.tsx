@@ -104,7 +104,7 @@ export function ContactUs() {
             <div className="space-y-8">
               <div className="flex gap-6">
                 <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
-                  <MapPin className="size-7 md:size-6" />
+                  <MapPin className="size-9 md:size-6" />
                 </div>
                 <div>
                   <h4 className="font-bold text-primary mb-1">Factory</h4>
@@ -113,7 +113,7 @@ export function ContactUs() {
               </div>
               <div className="flex gap-6">
                 <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
-                  <MapPin className="size-7 md:size-6" />
+                  <MapPin className="size-9 md:size-6" />
                 </div>
                 <div>
                   <h4 className="font-bold text-primary mb-1">Ware house</h4>
@@ -122,7 +122,7 @@ export function ContactUs() {
               </div>
               <div className="flex gap-6">
                 <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
-                  <Phone className="size-7 md:size-6" />
+                  <Phone className="size-9 md:size-6" />
                 </div>
                 <div>
                   <h4 className="font-bold text-primary mb-1">Mobile</h4>
@@ -131,7 +131,7 @@ export function ContactUs() {
               </div>
               <div className="flex gap-6">
                 <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
-                  <Mail className="size-7 md:size-6" />
+                  <Mail className="size-9 md:size-6" />
                 </div>
                 <div>
                   <h4 className="font-bold text-primary mb-1">Email</h4>
@@ -165,13 +165,13 @@ export function ContactUs() {
               <Button type="submit" className="w-full h-14 text-lg font-bold" variant="secondary" disabled={isSubmitting}>
                 {isSubmitting ? (
                   <>
-                    <Loader2 className="mr-2 animate-spin size-6" />
+                    <Loader2 className="mr-2 animate-spin size-8" />
                     Sending...
                   </>
                 ) : (
                   <>
                     Send Message
-                    <Send className="ml-2 size-6 md:size-5" />
+                    <Send className="ml-2 size-8 md:size-5" />
                   </>
                 )}
               </Button>

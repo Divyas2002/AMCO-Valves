@@ -39,7 +39,7 @@ export function AIAssistant() {
         onClick={() => setIsOpen(true)}
         className="fixed bottom-6 right-6 w-14 h-14 bg-secondary text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform z-40 group"
       >
-        <MessageSquare size={24} className="group-hover:rotate-12 transition-transform" />
+        <MessageSquare className="size-8 md:size-6 group-hover:rotate-12 transition-transform" />
         <span className="absolute -top-1 -right-1 flex h-4 w-4">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
           <span className="relative inline-flex rounded-full h-4 w-4 bg-secondary"></span>
@@ -52,18 +52,18 @@ export function AIAssistant() {
           <Card className="shadow-2xl border-primary/10 overflow-hidden bg-white">
             <CardHeader className="bg-primary text-white flex flex-row items-center justify-between py-4">
               <div className="flex items-center gap-2">
-                <Sparkles className="text-secondary" size={20} />
+                <Sparkles className="text-secondary size-6 md:size-5" />
                 <CardTitle className="text-lg">Product Assistant</CardTitle>
               </div>
               <button onClick={() => setIsOpen(false)} className="text-white/70 hover:text-white transition-colors">
-                <X size={20} />
+                <X className="size-6 md:size-5" />
               </button>
             </CardHeader>
             <CardContent className="h-80 overflow-y-auto p-4 space-y-4 bg-background/30">
               {messages.length === 0 && (
                 <div className="text-center py-8">
                   <div className="w-12 h-12 bg-secondary/10 text-secondary rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Sparkles size={24} />
+                    <Sparkles className="size-8 md:size-6" />
                   </div>
                   <p className="text-sm font-medium text-primary">How can I help you today?</p>
                   <p className="text-xs text-foreground/50 mt-1">Ask about valve specs, configurations, or applications.</p>
@@ -83,7 +83,7 @@ export function AIAssistant() {
               {isLoading && (
                 <div className="flex justify-start">
                   <div className="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-border">
-                    <Loader2 size={16} className="animate-spin text-secondary" />
+                    <Loader2 className="animate-spin text-secondary size-6 md:size-4" />
                   </div>
                 </div>
               )}
@@ -97,7 +97,7 @@ export function AIAssistant() {
                   className="flex-1 focus-visible:ring-secondary border-none bg-background"
                 />
                 <Button type="submit" size="icon" variant="secondary" disabled={isLoading}>
-                  <Send size={18} />
+                  <Send className="size-6 md:size-[18px]" />
                 </Button>
               </form>
             </CardFooter>

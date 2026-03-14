@@ -99,7 +99,7 @@ export function Products() {
   return (
     <section id="products" className="py-12 md:py-24 bg-background">
       <div className="container mx-auto px-6">
-        <div className="text-left max-w-3xl mb-6 md:mb-10">
+        <div className="text-left max-w-3xl mb-4 md:mb-6">
           <h2 className="text-secondary font-bold text-sm uppercase tracking-widest mb-3">Product Portfolio</h2>
           <h3 className="text-3xl md:text-5xl font-bold text-primary mb-6">Our Valve Solutions</h3>
           <p className="text-foreground/70 text-sm md:text-base mb-8">
@@ -112,11 +112,11 @@ export function Products() {
             <Card key={product.id} className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] overflow-hidden hover:shadow-2xl transition-all duration-500 border-none bg-white rounded-[1.5rem] md:rounded-[2rem] flex flex-col">
               <ProductImageSlider productId={product.id} title={product.title} />
               
-              <CardHeader className="p-4 pb-0 md:p-6 md:pb-2">
+              <CardHeader className="p-4 md:p-6 pb-[8px] md:pb-[8px]">
                 <CardTitle className="text-lg md:text-xl font-bold text-primary line-clamp-1">{product.title}</CardTitle>
                 <p className="text-secondary font-semibold text-[10px] md:text-xs line-clamp-1">{product.specs}</p>
               </CardHeader>
-              <CardContent className="p-4 md:p-6 pt-1 md:pt-1.5 flex-grow">
+              <CardContent className="p-4 md:p-6 pt-1 md:pt-1 flex-grow">
                 <ul className="space-y-1.5 md:space-y-2">
                   {product.features.map((feature, i) => (
                     <li key={i} className="flex items-center gap-2 text-foreground/70 text-[11px] md:text-xs">
@@ -130,7 +130,7 @@ export function Products() {
           ))}
 
           {/* Brochure Card */}
-          <div className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(75%-1.5rem)] relative h-[290px] mt-[65px]">
+          <div className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(75%-1.5rem)] relative h-[290px] mt-[65px] md:mb-0">
             <div 
               className="h-full relative flex flex-col items-center justify-center py-8 md:py-6 px-6 md:px-10 bg-primary rounded-[1.5rem] md:rounded-[2rem] text-white shadow-xl transition-all duration-500 group overflow-hidden gap-6 md:gap-8"
             >
@@ -148,7 +148,7 @@ export function Products() {
                   download="AMCO_Valves_Brochure.pdf"
                   className="inline-flex items-center gap-3 bg-secondary px-8 md:px-10 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold text-base md:text-lg shadow-xl shadow-secondary/20 hover:bg-secondary/90 transition-all hover:translate-y-[-2px] animate-glow"
                 >
-                  <Download className="size-6 md:size-6" />
+                  <Download className="size-8 md:size-6" />
                   Download Full Brochure
                 </a>
               </div>
@@ -172,7 +172,7 @@ export function Products() {
                   : "bg-white text-primary hover:bg-secondary hover:text-white"
               )}
             >
-              <item.icon className="text-secondary group-hover:text-white transition-colors size-7 md:size-6" />
+              <item.icon className="text-secondary group-hover:text-white transition-colors size-10 md:size-6" />
               <h4 className="text-sm md:text-lg font-bold">{item.title}</h4>
               <p className={cn(
                 "text-[10px] md:text-sm group-hover:text-white/90",

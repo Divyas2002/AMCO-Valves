@@ -36,7 +36,7 @@ export function Certificates() {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
-              <ShieldCheck size={14} />
+              <ShieldCheck className="size-5 md:size-3.5" />
               Quality Standards
             </div>
             <h3 className="text-4xl md:text-5xl font-bold text-primary mb-8 leading-tight">
@@ -54,7 +54,7 @@ export function Certificates() {
                 <ul className="grid gap-4 sm:grid-cols-1">
                   {approvals.map((item, idx) => (
                     <li key={idx} className="flex gap-3 text-foreground/70 text-sm">
-                      <CheckCircle2 className="text-secondary shrink-0 mt-0.5 size-[22px] md:size-[18px]" />
+                      <CheckCircle2 className="text-secondary shrink-0 mt-0.5 size-7 md:size-[18px]" />
                       <span className="leading-tight font-medium">{item}</span>
                     </li>
                   ))}
@@ -84,7 +84,7 @@ export function Certificates() {
               
               <div className="col-span-2 p-6 md:p-8 rounded-[2rem] bg-primary/5 border border-primary/10">
                 <h4 className="text-base md:text-lg font-bold text-primary mb-4 flex items-center gap-2">
-                  <Search className="text-secondary size-6 md:size-5" />
+                  <Search className="text-secondary size-8 md:size-5" />
                   Third Party Inspection
                 </h4>
                 <div className="flex flex-wrap gap-2">
