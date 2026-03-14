@@ -148,7 +148,7 @@ export function Products() {
                   download="AMCO_Valves_Brochure.pdf"
                   className="inline-flex items-center gap-3 bg-secondary px-8 md:px-10 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold text-base md:text-lg shadow-xl shadow-secondary/20 hover:bg-secondary/90 transition-all hover:translate-y-[-2px] animate-glow"
                 >
-                  <Download className="size-8 md:size-6" />
+                  <Download className="size-9 md:size-6" />
                   Download Full Brochure
                 </a>
               </div>

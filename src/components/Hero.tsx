@@ -65,7 +65,7 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 mb-4 md:mb-4">
             <Button variant="secondary" size="lg" className="h-12 md:h-14 px-8 md:px-10 text-base md:text-lg rounded-xl font-bold" asChild>
               <Link href="#products">
-                Explore Catalog <ArrowRight className="ml-2" />
+                Explore Catalog <ArrowRight className="size-6 ml-2" />
               </Link>
             </Button>
             <Button variant="outline" size="lg" className="h-12 md:h-14 px-8 md:px-10 text-base md:text-lg bg-white border-none text-primary hover:bg-white hover:text-secondary hover:shadow-lg transition-all rounded-xl font-bold shadow-sm" asChild>

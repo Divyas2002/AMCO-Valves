@@ -84,7 +84,7 @@ export function Navbar() {
             )}
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X className="size-8" /> : <Menu className="size-8" />}
+            {isOpen ? <X className="size-9" /> : <Menu className="size-9" />}
           </button>
         </div>
       </div>
