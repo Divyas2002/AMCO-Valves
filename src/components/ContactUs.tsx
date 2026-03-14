@@ -61,7 +61,7 @@ export function ContactUs() {
                 </div>
                 <div>
                   <h4 className="font-bold text-primary mb-1">Mobile</h4>
-                  <p className="text-foreground/60 text-sm">91-0-9841114671</p>
+                  <p className="text-foreground/60 text-sm">+91 9841114671</p>
                 </div>
               </div>
               <div className="flex gap-6">
