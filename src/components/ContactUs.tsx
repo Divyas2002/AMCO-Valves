@@ -24,7 +24,7 @@ export function ContactUs() {
     if (isSubmitting) return;
     setIsSubmitting(true);
     
-    const targetEmail = "divya126bca@gmail.com";
+    const targetEmail = "contact@amcovalves.com";
     const formData = new FormData(e.target as HTMLFormElement);
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
