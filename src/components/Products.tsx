@@ -100,7 +100,7 @@ export function Products() {
   return (
     <section id="products" className="py-24 bg-background">
       <div className="container mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-left max-w-3xl mb-16">
           <h2 className="text-secondary font-bold text-sm uppercase tracking-widest mb-3">Product Portfolio</h2>
           <h3 className="text-3xl md:text-5xl font-bold text-primary mb-6">Our Valve Solutions</h3>
           <p className="text-foreground/70 mb-8">
@@ -108,7 +108,7 @@ export function Products() {
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-8 mb-20">
+        <div className="flex flex-wrap justify-start gap-8 mb-20">
           {productData.map((product) => (
             <Card key={product.id} className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] overflow-hidden hover:shadow-2xl transition-all duration-500 border-none bg-white rounded-[2rem] flex flex-col">
               <ProductImageSlider productId={product.id} title={product.title} />
@@ -160,16 +160,18 @@ export function Products() {
         {/* Improved Brochure Layout matching requested design */}
         <div className="max-w-6xl mx-auto mt-24">
           <div 
-            className="relative block text-center py-16 px-10 bg-primary rounded-[3rem] text-white shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 group overflow-hidden"
+            className="relative flex flex-col md:flex-row items-center justify-between text-center md:text-left py-12 px-10 bg-primary rounded-[3rem] text-white shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 group overflow-hidden gap-8"
           >
             {/* Subtle glow effect on hover */}
             <div className="absolute inset-0 bg-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
-            <div className="relative z-10">
-              <h4 className="text-[32px] font-bold mb-10 leading-tight">
+            <div className="relative z-10 max-w-2xl">
+              <h4 className="text-[32px] font-bold leading-tight">
                 Get our complete product catalog with technical specifications
               </h4>
-              
+            </div>
+            
+            <div className="relative z-10 shrink-0">
               <a 
                 href="/brochure.pdf" 
                 download="AMCO_Valves_Brochure.pdf"
