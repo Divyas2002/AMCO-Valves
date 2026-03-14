@@ -64,12 +64,12 @@ export function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-[15px] font-bold text-primary/80 transition-colors hover:text-secondary whitespace-nowrap"
+              className="text-[16px] font-extrabold text-primary transition-colors hover:text-secondary whitespace-nowrap"
             >
               {link.name}
             </Link>
           ))}
-          <Button variant="secondary" size="sm" className="rounded-xl font-bold px-6 h-10 text-[15px]" asChild>
+          <Button variant="secondary" size="sm" className="rounded-xl font-extrabold px-6 h-10 text-[16px]" asChild>
             <Link href="#contact">Get a Quote</Link>
           </Button>
         </div>
