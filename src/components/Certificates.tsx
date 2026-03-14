@@ -82,13 +82,6 @@ export function Certificates() {
                 </div>
               ))}
               
-              <div className="col-span-2 bg-primary p-6 md:p-8 rounded-[2rem] text-white shadow-xl shadow-primary/20 flex flex-col justify-center items-center text-center">
-                <h5 className="text-lg md:text-xl font-bold mb-2">Global Quality Standards</h5>
-                <p className="text-white/80 text-[11px] md:text-xs max-w-xs">
-                  Meeting and exceeding international requirements for industrial safety and engineering performance.
-                </p>
-              </div>
-
               <div className="col-span-2 p-6 md:p-8 rounded-[2rem] bg-primary/5 border border-primary/10">
                 <h4 className="text-base md:text-lg font-bold text-primary mb-4 flex items-center gap-2">
                   <Search className="text-secondary" size={20} />
@@ -104,6 +97,13 @@ export function Certificates() {
                     </span>
                   ))}
                 </div>
+              </div>
+
+              <div className="col-span-2 bg-primary p-6 md:p-8 rounded-[2rem] text-white shadow-xl shadow-primary/20 flex flex-col justify-center items-center text-center">
+                <h5 className="text-lg md:text-xl font-bold mb-2">Global Quality Standards</h5>
+                <p className="text-white/80 text-[11px] md:text-xs max-w-xs">
+                  Meeting and exceeding international requirements for industrial safety and engineering performance.
+                </p>
               </div>
             </div>
           </div>
