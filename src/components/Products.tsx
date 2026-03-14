@@ -108,9 +108,9 @@ export function Products() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        <div className="flex flex-wrap justify-center gap-8 mb-20">
           {productData.map((product) => (
-            <Card key={product.id} className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 border-none bg-white rounded-[2rem] flex flex-col">
+            <Card key={product.id} className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] overflow-hidden hover:shadow-2xl transition-all duration-500 border-none bg-white rounded-[2rem] flex flex-col">
               <ProductImageSlider productId={product.id} title={product.title} />
               
               <CardHeader className="pb-2">
@@ -168,12 +168,9 @@ export function Products() {
             <div className="absolute inset-0 bg-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
             <div className="relative z-10">
-              <h4 className="text-2xl md:text-[40px] font-bold mb-6 leading-tight group-hover:text-secondary transition-colors duration-300">
-                At AMCO, you do not have to pay a premium for Quality.
+              <h4 className="text-2xl md:text-[40px] font-bold mb-10 leading-tight group-hover:text-secondary transition-colors duration-300">
+                Get our complete product catalog with technical specifications
               </h4>
-              <p className="text-white/40 text-lg md:text-xl font-medium mb-10">
-                Engineered for Excellence since 1986. Delivered with Integrity.
-              </p>
               
               <div className="inline-flex items-center gap-3 bg-secondary px-10 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-secondary/20 hover:bg-secondary/90 transition-all hover:translate-y-[-2px]">
                 <Download size={24} />
