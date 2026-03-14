@@ -62,7 +62,7 @@ export function Hero() {
             AMCO Valves delivers world-class ball valve solutions designed for extreme environments. Reliability, durability, and engineering excellence in every piece.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-8 md:mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 mb-4 md:mb-6">
             <Button variant="secondary" size="lg" className="h-12 md:h-14 px-8 md:px-10 text-base md:text-lg rounded-xl font-bold" asChild>
               <Link href="#products">
                 Explore Catalog <ArrowRight className="ml-2" />

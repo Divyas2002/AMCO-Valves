@@ -112,7 +112,7 @@ export function Products() {
             <Card key={product.id} className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] overflow-hidden hover:shadow-2xl transition-all duration-500 border-none bg-white rounded-[1.5rem] md:rounded-[2rem] flex flex-col">
               <ProductImageSlider productId={product.id} title={product.title} />
               
-              <CardHeader className="p-4 md:p-6 pb-0">
+              <CardHeader className="p-4 pb-0 md:p-6 md:pb-2">
                 <CardTitle className="text-lg md:text-xl font-bold text-primary line-clamp-1">{product.title}</CardTitle>
                 <p className="text-secondary font-semibold text-[10px] md:text-xs line-clamp-1">{product.specs}</p>
               </CardHeader>
