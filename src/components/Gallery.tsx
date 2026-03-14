@@ -2,14 +2,12 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { X, Maximize2 } from "lucide-react";
 import { PlaceHolderImages, type ImagePlaceholder } from "@/lib/placeholder-images";
 import {
   Dialog,
   DialogContent,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 export function Gallery() {
   const [selectedImage, setSelectedImage] = useState<ImagePlaceholder | null>(null);
@@ -47,9 +45,7 @@ export function Gallery() {
                 data-ai-hint={image.imageHint}
               />
               <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <div className="bg-white/20 backdrop-blur-md p-4 rounded-full text-white">
-                  <Maximize2 size={24} />
-                </div>
+                {/* Icon removed as requested */}
               </div>
             </button>
           ))}
