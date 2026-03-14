@@ -133,13 +133,13 @@ export function Products() {
           {/* Brochure Card integrated into grid */}
           <div className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(75%-1.5rem)] relative">
             <div 
-              className="h-full relative flex flex-col items-start justify-center py-12 px-10 bg-primary rounded-[2rem] text-white shadow-xl transition-all duration-500 group overflow-hidden gap-8"
+              className="h-full relative flex flex-col items-center justify-center py-12 px-10 bg-primary rounded-[2rem] text-white shadow-xl transition-all duration-500 group overflow-hidden gap-8"
             >
               {/* Subtle glow effect on hover */}
               <div className="absolute inset-0 bg-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              <div className="relative z-10 w-full">
-                <h4 className="text-[32px] font-bold leading-tight lg:whitespace-nowrap">
+              <div className="relative z-10 w-full text-center">
+                <h4 className="text-[32px] font-bold leading-tight">
                   Get our complete product catalog with technical specifications
                 </h4>
               </div>
