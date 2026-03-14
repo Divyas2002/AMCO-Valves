@@ -84,7 +84,7 @@ export function Navbar() {
             )}
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X size={20} /> : <Menu size={20} />}
+            {isOpen ? <X className="size-[26px]" /> : <Menu className="size-[26px]" />}
           </button>
         </div>
       </div>
@@ -100,7 +100,7 @@ export function Navbar() {
           onClick={() => setIsOpen(false)}
           className="absolute top-6 right-6 text-white p-2"
         >
-          <X size={28} />
+          <X className="size-8" />
         </button>
         {navLinks.map((link) => (
           <Link

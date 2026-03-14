@@ -27,7 +27,7 @@ export function AboutUs() {
           <div className="space-y-6 md:space-y-8">
             <div className="p-8 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-primary/5 border border-primary/10">
               <h4 className="text-xl md:text-2xl font-bold text-primary mb-4 md:mb-6 flex items-center gap-3">
-                <Factory className="text-secondary" size={24} />
+                <Factory className="text-secondary size-[30px] md:size-6" />
                 Industry Applications
               </h4>
               <p className="text-foreground/70 text-sm md:text-base leading-relaxed">
@@ -37,7 +37,7 @@ export function AboutUs() {
             
             <div className="p-8 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-white border border-border shadow-sm">
               <h4 className="text-xl md:text-2xl font-bold text-primary mb-4 md:mb-6 flex items-center gap-3">
-                <History className="text-secondary" size={24} />
+                <History className="text-secondary size-[30px] md:size-6" />
                 Technical Evolution
               </h4>
               <p className="text-foreground/70 text-sm md:text-base leading-relaxed">
@@ -49,7 +49,7 @@ export function AboutUs() {
           <div className="space-y-6 md:space-y-8">
             <div className="p-8 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-white border border-border shadow-sm">
               <h4 className="text-xl md:text-2xl font-bold text-primary mb-4 md:mb-6 flex items-center gap-3">
-                <ShieldCheck className="text-secondary" size={24} />
+                <ShieldCheck className="text-secondary size-[30px] md:size-6" />
                 Quality Assurance
               </h4>
               <p className="text-foreground/70 text-sm md:text-base leading-relaxed">
@@ -59,7 +59,7 @@ export function AboutUs() {
 
             <div className="p-8 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-secondary/5 border border-secondary/10">
               <h4 className="text-xl md:text-2xl font-bold text-primary mb-4 md:mb-6 flex items-center gap-3">
-                <CheckCircle2 className="text-secondary" size={24} />
+                <CheckCircle2 className="text-secondary size-[30px] md:size-6" />
                 Exacting Standards
               </h4>
               <p className="text-foreground/70 text-sm md:text-base leading-relaxed">

@@ -148,7 +148,7 @@ export function Products() {
                   download="AMCO_Valves_Brochure.pdf"
                   className="inline-flex items-center gap-3 bg-secondary px-8 md:px-10 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold text-base md:text-lg shadow-xl shadow-secondary/20 hover:bg-secondary/90 transition-all hover:translate-y-[-2px] animate-glow"
                 >
-                  <Download size={20} className="md:size-6" />
+                  <Download className="size-6 md:size-6" />
                   Download Full Brochure
                 </a>
               </div>
@@ -172,7 +172,7 @@ export function Products() {
                   : "bg-white text-primary hover:bg-secondary hover:text-white"
               )}
             >
-              <item.icon size={24} className="text-secondary group-hover:text-white transition-colors" />
+              <item.icon className="text-secondary group-hover:text-white transition-colors size-7 md:size-6" />
               <h4 className="text-sm md:text-lg font-bold">{item.title}</h4>
               <p className={cn(
                 "text-[10px] md:text-sm group-hover:text-white/90",

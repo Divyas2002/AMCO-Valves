@@ -82,7 +82,7 @@ export function Hero() {
             ].map((stat, i) => (
               <div key={i} className="flex items-center gap-4">
                 <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-secondary">
-                  <stat.icon size={28} className="md:size-9" />
+                  <stat.icon size={32} className="md:size-9" />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-primary font-bold text-2xl md:text-3xl leading-none mb-1">
