@@ -129,6 +129,33 @@ export function Products() {
               </CardContent>
             </Card>
           ))}
+
+          {/* Brochure Card integrated into grid */}
+          <div className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(75%-1.5rem)] relative">
+            <div 
+              className="h-full relative flex flex-col md:flex-row items-center justify-between text-center md:text-left py-12 px-10 bg-primary rounded-[2rem] text-white shadow-xl transition-all duration-500 group overflow-hidden gap-8"
+            >
+              {/* Subtle glow effect on hover */}
+              <div className="absolute inset-0 bg-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10 max-w-2xl">
+                <h4 className="text-[32px] font-bold leading-tight">
+                  Get our complete product catalog with technical specifications
+                </h4>
+              </div>
+              
+              <div className="relative z-10 shrink-0">
+                <a 
+                  href="/brochure.pdf" 
+                  download="AMCO_Valves_Brochure.pdf"
+                  className="inline-flex items-center gap-3 bg-secondary px-10 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-secondary/20 hover:bg-secondary/90 transition-all hover:translate-y-[-2px]"
+                >
+                  <Download size={24} />
+                  Download Full Brochure
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
@@ -155,33 +182,6 @@ export function Products() {
               )}>{item.desc}</p>
             </div>
           ))}
-        </div>
-
-        {/* Improved Brochure Layout matching requested design */}
-        <div className="max-w-6xl mx-auto mt-24">
-          <div 
-            className="relative flex flex-col md:flex-row items-center justify-between text-center md:text-left py-12 px-10 bg-primary rounded-[3rem] text-white shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 group overflow-hidden gap-8"
-          >
-            {/* Subtle glow effect on hover */}
-            <div className="absolute inset-0 bg-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            
-            <div className="relative z-10 max-w-2xl">
-              <h4 className="text-[32px] font-bold leading-tight">
-                Get our complete product catalog with technical specifications
-              </h4>
-            </div>
-            
-            <div className="relative z-10 shrink-0">
-              <a 
-                href="/brochure.pdf" 
-                download="AMCO_Valves_Brochure.pdf"
-                className="inline-flex items-center gap-3 bg-secondary px-10 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-secondary/20 hover:bg-secondary/90 transition-all hover:translate-y-[-2px]"
-              >
-                <Download size={24} />
-                Download Full Brochure
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </section>
