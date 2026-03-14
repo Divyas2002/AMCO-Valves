@@ -31,8 +31,10 @@ export function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-500 ease-in-out px-6 md:px-12",
-        scrolled ? "py-3 bg-white shadow-md border-b border-border" : "py-6 bg-transparent"
+        "fixed top-0 w-full z-50 transition-all duration-700 ease-in-out px-6 md:px-12 border-b",
+        scrolled 
+          ? "py-3 bg-white/95 backdrop-blur-md shadow-md border-border" 
+          : "py-6 bg-transparent border-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -53,9 +55,9 @@ export function Navbar() {
 
         {/* Desktop Nav Container */}
         <div className={cn(
-          "hidden md:flex items-center gap-8 transition-all duration-500 ease-in-out",
+          "hidden md:flex items-center gap-8 transition-all duration-700 ease-in-out",
           scrolled 
-            ? "bg-transparent shadow-none border-none px-0 py-0 rounded-none" 
+            ? "bg-transparent shadow-none border-transparent px-0 py-0 rounded-none" 
             : "bg-white px-8 py-3 rounded-2xl rounded-bl-[40px] shadow-lg border border-white/20"
         )}>
           {navLinks.map((link) => (
@@ -76,8 +78,10 @@ export function Navbar() {
         <div className="md:hidden">
           <button
             className={cn(
-              "p-3 rounded-xl transition-all duration-500 ease-in-out text-primary",
-              scrolled ? "bg-primary/5" : "bg-white shadow-md"
+              "p-3 rounded-xl transition-all duration-500 ease-in-out text-primary border",
+              scrolled 
+                ? "bg-primary/5 border-transparent" 
+                : "bg-white shadow-md border-white/20"
             )}
             onClick={() => setIsOpen(!isOpen)}
           >
