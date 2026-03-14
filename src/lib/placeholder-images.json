@@ -117,49 +117,49 @@
     {
       "id": "gallery-1",
       "description": "Valve manufacturing process",
-      "imageUrl": "/gallery-1.jpg",
+      "imageUrl": "/Gallery-img-1.webp",
       "imageHint": "factory valve"
     },
     {
       "id": "gallery-2",
       "description": "Large flanged valves in warehouse",
-      "imageUrl": "/gallery-2.jpg",
+      "imageUrl": "/Gallery-img-2.jpeg",
       "imageHint": "industrial inventory"
     },
     {
       "id": "gallery-3",
       "description": "Precision engineering of valve parts",
-      "imageUrl": "/gallery-3.jpg",
+      "imageUrl": "/Gallery-img-3.jpeg",
       "imageHint": "precision engineering"
     },
     {
       "id": "gallery-4",
       "description": "Finished ball valves ready for shipping",
-      "imageUrl": "/gallery-4.jpg",
+      "imageUrl": "/Gallery-img-4.jpg",
       "imageHint": "quality control"
     },
     {
       "id": "gallery-5",
       "description": "Industrial valve storage",
-      "imageUrl": "/gallery-5.jpg",
+      "imageUrl": "/Gallery-img-5.jpg",
       "imageHint": "valve storage"
     },
     {
       "id": "gallery-6",
       "description": "Pipeline installation",
-      "imageUrl": "/gallery-6.jpg",
+      "imageUrl": "/Gallery-img-6.jpg",
       "imageHint": "industrial pipeline"
     },
     {
       "id": "gallery-7",
       "description": "Advanced metal fabrication",
-      "imageUrl": "/gallery-7.jpg",
+      "imageUrl": "/Gallery-img-7.jpg",
       "imageHint": "metal manufacturing"
     },
     {
       "id": "gallery-8",
       "description": "Final quality inspection",
-      "imageUrl": "/gallery-8.jpg",
+      "imageUrl": "/Gallery-img-8.jpg",
       "imageHint": "quality inspection"
     }
   ]
