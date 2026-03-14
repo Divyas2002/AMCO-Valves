@@ -166,7 +166,7 @@ export function Products() {
             <div className="absolute inset-0 bg-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
             <div className="relative z-10">
-              <h4 className="text-[32px] font-bold mb-10 leading-tight group-hover:text-secondary transition-colors duration-300">
+              <h4 className="text-[32px] font-bold mb-10 leading-tight">
                 Get our complete product catalog with technical specifications
               </h4>
               
