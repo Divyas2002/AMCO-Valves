@@ -64,42 +64,41 @@ export function Certificates() {
           </div>
 
           <div className="lg:sticky lg:top-32">
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-4 md:gap-6">
               {certLogos.map((logo, idx) => (
                 <div 
                   key={logo?.id || idx} 
-                  className="relative aspect-square rounded-[2.5rem] bg-white border border-border shadow-sm overflow-hidden p-6 flex items-center justify-center hover:shadow-lg hover:border-secondary/20 transition-all duration-300"
+                  className="relative aspect-[1.4/1] rounded-[2rem] bg-white border border-border shadow-sm overflow-hidden p-4 flex items-center justify-center hover:shadow-lg hover:border-secondary/20 transition-all duration-300"
                 >
                   {logo && (
                     <Image
                       src={logo.imageUrl}
                       alt={logo.description}
                       fill
-                      className="object-contain p-12"
+                      className="object-contain p-10 md:p-14"
                       data-ai-hint={logo.imageHint}
                     />
                   )}
                 </div>
               ))}
               
-              <div className="col-span-2 bg-primary p-8 rounded-[2.5rem] text-white shadow-xl shadow-primary/20 flex flex-col justify-center items-center text-center mt-2">
-                <h5 className="text-2xl font-bold mb-2">Global Quality Standards</h5>
-                <p className="text-white text-sm max-w-sm">
+              <div className="col-span-2 bg-primary p-6 md:p-8 rounded-[2.5rem] text-white shadow-xl shadow-primary/20 flex flex-col justify-center items-center text-center">
+                <h5 className="text-xl md:text-2xl font-bold mb-2">Global Quality Standards</h5>
+                <p className="text-white/80 text-xs md:text-sm max-w-sm">
                   Meeting and exceeding international requirements for industrial safety and engineering performance.
                 </p>
               </div>
 
-              {/* Moved Third Party Inspection Card Here */}
-              <div className="col-span-2 p-8 rounded-[2.5rem] bg-primary/5 border border-primary/10 mt-4">
-                <h4 className="text-xl font-bold text-primary mb-6 flex items-center gap-2">
+              <div className="col-span-2 p-6 md:p-8 rounded-[2.5rem] bg-primary/5 border border-primary/10">
+                <h4 className="text-lg md:text-xl font-bold text-primary mb-4 md:mb-6 flex items-center gap-2">
                   <Search className="text-secondary" size={24} />
                   Third Party Inspection
                 </h4>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-2 md:gap-3">
                   {thirdParty.map((item, idx) => (
                     <span
                       key={idx}
-                      className="px-6 py-2.5 bg-white border border-border rounded-full text-sm font-bold text-primary shadow-sm hover:border-secondary/30 transition-colors"
+                      className="px-4 md:px-6 py-2 bg-white border border-border rounded-full text-[12px] md:text-sm font-bold text-primary shadow-sm hover:border-secondary/30 transition-colors"
                     >
                       {item}
                     </span>
