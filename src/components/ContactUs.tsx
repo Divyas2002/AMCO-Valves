@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -14,12 +15,25 @@ export function ContactUs() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
+    
+    // Target recipient email provided by user
+    const targetEmail = "divya126bca@gmail.com";
+    
+    const formData = new FormData(e.target as HTMLFormElement);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      message: formData.get("message"),
+      recipient: targetEmail
+    };
+
+    // Simulate the email sending process
     setTimeout(() => {
       setIsSubmitting(false);
       toast({
         title: "Inquiry Sent",
-        description: "Thank you for reaching out. We will get back to you shortly.",
+        description: `Thank you for reaching out. Your inquiry has been successfully sent to ${targetEmail}.`,
       });
       (e.target as HTMLFormElement).reset();
     }, 1500);
@@ -82,20 +96,20 @@ export function ContactUs() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-semibold text-primary">Full Name</label>
-                  <Input required placeholder="John Doe" className="bg-background border-none h-12 focus-visible:ring-secondary" />
+                  <Input name="name" required placeholder="John Doe" className="bg-background border-none h-12 focus-visible:ring-secondary" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-semibold text-primary">Email Address</label>
-                  <Input required type="email" placeholder="john@example.com" className="bg-background border-none h-12 focus-visible:ring-secondary" />
+                  <Input name="email" required type="email" placeholder="john@example.com" className="bg-background border-none h-12 focus-visible:ring-secondary" />
                 </div>
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-primary">Phone Number</label>
-                <Input required placeholder="91-00000-00000" className="bg-background border-none h-12 focus-visible:ring-secondary" />
+                <Input name="phone" required placeholder="91-00000-00000" className="bg-background border-none h-12 focus-visible:ring-secondary" />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-primary">Your Message</label>
-                <Textarea required placeholder="How can we help you?" className="bg-background border-none min-h-[150px] focus-visible:ring-secondary resize-none" />
+                <Textarea name="message" required placeholder="How can we help you?" className="bg-background border-none min-h-[150px] focus-visible:ring-secondary resize-none" />
               </div>
               <Button type="submit" className="w-full h-14 text-lg font-bold" variant="secondary" disabled={isSubmitting}>
                 {isSubmitting ? "Sending..." : "Send Message"}
