@@ -159,25 +159,27 @@ export function Products() {
 
         {/* Improved Brochure Layout matching requested design */}
         <div className="max-w-6xl mx-auto mt-24">
-          <a 
-            href="/brochure.pdf" 
-            download="AMCO_Valves_Brochure.pdf"
-            className="relative block text-center py-16 px-10 bg-primary rounded-[3rem] text-white shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 hover:scale-[1.005] group overflow-hidden"
+          <div 
+            className="relative block text-center py-16 px-10 bg-primary rounded-[3rem] text-white shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 group overflow-hidden"
           >
             {/* Subtle glow effect on hover */}
             <div className="absolute inset-0 bg-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
             <div className="relative z-10">
-              <h4 className="text-2xl md:text-[40px] font-bold mb-10 leading-tight group-hover:text-secondary transition-colors duration-300">
+              <h4 className="text-[36px] font-bold mb-10 leading-tight group-hover:text-secondary transition-colors duration-300">
                 Get our complete product catalog with technical specifications
               </h4>
               
-              <div className="inline-flex items-center gap-3 bg-secondary px-10 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-secondary/20 hover:bg-secondary/90 transition-all hover:translate-y-[-2px]">
+              <a 
+                href="/brochure.pdf" 
+                download="AMCO_Valves_Brochure.pdf"
+                className="inline-flex items-center gap-3 bg-secondary px-10 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-secondary/20 hover:bg-secondary/90 transition-all hover:translate-y-[-2px]"
+              >
                 <Download size={24} />
                 Download Full Brochure
-              </div>
+              </a>
             </div>
-          </a>
+          </div>
         </div>
       </div>
     </section>
