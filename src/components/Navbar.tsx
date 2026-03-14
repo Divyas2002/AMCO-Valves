@@ -21,7 +21,7 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -30,11 +30,11 @@ export function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300 px-6 py-6 md:px-12",
-        scrolled ? "py-4" : "py-6"
+        "fixed top-0 w-full z-50 transition-all duration-300 px-6 md:px-12",
+        scrolled ? "py-4 bg-white shadow-md border-b border-border" : "py-6 bg-transparent"
       )}
     >
-      <div className="max-w-7xl mx-auto flex items-start justify-between">
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo Container - Transparent background as requested */}
         <div className="transition-all duration-300">
           <Link href="/" className="flex items-center group">
@@ -51,7 +51,12 @@ export function Navbar() {
         </div>
 
         {/* Desktop Nav Container */}
-        <div className="hidden md:flex items-center gap-8 bg-white px-8 py-3 rounded-2xl rounded-bl-[40px] shadow-lg border border-white/20">
+        <div className={cn(
+          "hidden md:flex items-center gap-8 transition-all duration-300",
+          scrolled 
+            ? "bg-transparent shadow-none border-none px-0" 
+            : "bg-white px-8 py-3 rounded-2xl rounded-bl-[40px] shadow-lg border border-white/20"
+        )}>
           {navLinks.map((link) => (
             <Link
               key={link.name}
