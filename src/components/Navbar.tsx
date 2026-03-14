@@ -21,7 +21,8 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      // Small threshold for a quick but smooth transition start
+      setScrolled(window.scrollY > 40);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -30,13 +31,13 @@ export function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300 px-6 md:px-12",
-        scrolled ? "py-4 bg-white shadow-md border-b border-border" : "py-6 bg-transparent"
+        "fixed top-0 w-full z-50 transition-all duration-500 ease-in-out px-6 md:px-12",
+        scrolled ? "py-3 bg-white shadow-md border-b border-border" : "py-6 bg-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo Container - Transparent background as requested */}
-        <div className="transition-all duration-300">
+        <div className="transition-all duration-500 ease-in-out">
           <Link href="/" className="flex items-center group">
             <div className="relative w-24 h-12 md:w-28 md:h-14 transition-transform group-hover:scale-105">
               <Image
@@ -52,9 +53,9 @@ export function Navbar() {
 
         {/* Desktop Nav Container */}
         <div className={cn(
-          "hidden md:flex items-center gap-8 transition-all duration-300",
+          "hidden md:flex items-center gap-8 transition-all duration-500 ease-in-out",
           scrolled 
-            ? "bg-transparent shadow-none border-none px-0" 
+            ? "bg-transparent shadow-none border-none px-0 py-0 rounded-none" 
             : "bg-white px-8 py-3 rounded-2xl rounded-bl-[40px] shadow-lg border border-white/20"
         )}>
           {navLinks.map((link) => (
@@ -74,7 +75,10 @@ export function Navbar() {
         {/* Mobile Toggle */}
         <div className="md:hidden">
           <button
-            className="p-3 rounded-xl bg-white shadow-md text-primary"
+            className={cn(
+              "p-3 rounded-xl transition-all duration-500 ease-in-out text-primary",
+              scrolled ? "bg-primary/5" : "bg-white shadow-md"
+            )}
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -85,7 +89,7 @@ export function Navbar() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-0 top-0 bg-primary z-40 md:hidden transition-transform duration-300 ease-in-out flex flex-col items-center justify-center gap-8",
+          "fixed inset-0 top-0 bg-primary z-40 md:hidden transition-transform duration-500 ease-in-out flex flex-col items-center justify-center gap-8",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
