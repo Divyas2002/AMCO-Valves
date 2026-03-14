@@ -60,23 +60,6 @@ export function Certificates() {
                   ))}
                 </ul>
               </div>
-
-              <div className="p-8 rounded-[2.5rem] bg-primary/5 border border-primary/10">
-                <h4 className="text-xl font-bold text-primary mb-6 flex items-center gap-2">
-                  <Search className="text-secondary" size={24} />
-                  Third Party Inspection
-                </h4>
-                <div className="flex flex-wrap gap-3">
-                  {thirdParty.map((item, idx) => (
-                    <span
-                      key={idx}
-                      className="px-6 py-2.5 bg-white border border-border rounded-full text-sm font-bold text-primary shadow-sm hover:border-secondary/30 transition-colors"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
 
@@ -104,6 +87,24 @@ export function Certificates() {
                 <p className="text-white text-sm max-w-sm">
                   Meeting and exceeding international requirements for industrial safety and engineering performance.
                 </p>
+              </div>
+
+              {/* Moved Third Party Inspection Card Here */}
+              <div className="col-span-2 p-8 rounded-[2.5rem] bg-primary/5 border border-primary/10 mt-4">
+                <h4 className="text-xl font-bold text-primary mb-6 flex items-center gap-2">
+                  <Search className="text-secondary" size={24} />
+                  Third Party Inspection
+                </h4>
+                <div className="flex flex-wrap gap-3">
+                  {thirdParty.map((item, idx) => (
+                    <span
+                      key={idx}
+                      className="px-6 py-2.5 bg-white border border-border rounded-full text-sm font-bold text-primary shadow-sm hover:border-secondary/30 transition-colors"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
