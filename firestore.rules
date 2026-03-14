@@ -1,0 +1,115 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /**
+     * AMCO VALVES SECURITY ARCHITECTURE
+     * 
+     * Core Philosophy:
+     * This ruleset implements a Database Access Control (DBAC) model to manage administrative
+     * privileges while maintaining a public-facing product catalog. Administrative access
+     * is decoupled from the data itself, relying on a dedicated roles collection.
+     * 
+     * Data Structure:
+     * - /products, /galleryImages, /approvals: Publicly readable collections for the product catalog.
+     * - /contactSubmissions: An intake collection for form inquiries, writable by any authenticated user.
+     * - /roles_admin: A restricted collection where the document ID matches a user's UID to grant admin status.
+     * 
+     * Key Security Decisions:
+     * 1. DBAC for Admins: The `isAdmin()` helper performs a lookup against `/roles_admin/{uid}`.
+     * 2. Public Read-Only: Catalog data is readable by everyone to support SEO and site visitors.
+     * 3. Secure Intake: Form submissions are writable by anyone (including anonymous users) but 
+     *    read/update restricted to admins.
+     * 4. Relational Integrity: In prototyping mode, we enforce path-to-data consistency for roles
+     *    but allow flexible shapes for catalog items and form submissions.
+     */
+
+    // --- Helper Functions ---
+
+    /** @description Checks if the request is from a signed-in user (authenticated or anonymous). */
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    /** @description Determines if the current user has administrative privileges via DBAC. */
+    function isAdmin() {
+      return isSignedIn() && exists(/databases/$(database)/documents/roles_admin/$(request.auth.uid));
+    }
+
+    /** @description Verifies a document exists before modification or deletion. */
+    function isExisting(resourceInstance) {
+      return resourceInstance != null;
+    }
+
+    // --- Collection Rules ---
+
+    /**
+     * @description Administrative role registry. Existence of a document grants admin powers.
+     * @path /roles_admin/{userId}
+     * @allow (get) Any signed-in user checking their own or others' status.
+     * @deny (list, create, update, delete) Non-admin users attempting to view or modify roles.
+     * @principle Database Access Control (DBAC) and Path-to-Data consistency.
+     */
+    match /roles_admin/{userId} {
+      allow get: if isSignedIn();
+      allow list: if isAdmin();
+      allow create: if isAdmin() && request.resource.data.id == userId;
+      allow update: if isAdmin() && isExisting(resource) && request.resource.data.id == resource.data.id;
+      allow delete: if isAdmin() && isExisting(resource);
+    }
+
+    /**
+     * @description Publicly readable valve product information.
+     * @path /products/{productId}
+     * @allow (get, list) Public access for site visitors.
+     * @deny (create, update, delete) Non-admin users attempting to modify the catalog.
+     * @principle Public Read with Admin-Only Writes.
+     */
+    match /products/{productId} {
+      allow get, list: if true;
+      allow create: if isAdmin();
+      allow update, delete: if isAdmin() && isExisting(resource);
+    }
+
+    /**
+     * @description Publicly readable gallery images and metadata.
+     * @path /galleryImages/{imageId}
+     * @allow (get, list) Public access for site visitors.
+     * @deny (create, update, delete) Non-admin users attempting to modify the gallery.
+     * @principle Public Read with Admin-Only Writes.
+     */
+    match /galleryImages/{imageId} {
+      allow get, list: if true;
+      allow create: if isAdmin();
+      allow update, delete: if isAdmin() && isExisting(resource);
+    }
+
+    /**
+     * @description Publicly readable certifications and approvals.
+     * @path /approvals/{approvalId}
+     * @allow (get, list) Public access for site visitors.
+     * @deny (create, update, delete) Non-admin users attempting to modify certificates.
+     * @principle Public Read with Admin-Only Writes.
+     */
+    match /approvals/{approvalId} {
+      allow get, list: if true;
+      allow create: if isAdmin();
+      allow update, delete: if isAdmin() && isExisting(resource);
+    }
+
+    /**
+     * @description Form submissions for customer inquiries.
+     * @path /contactSubmissions/{submissionId}
+     * @allow (create) Any signed-in (including anonymous) user submitting the form.
+     * @allow (get, list, update, delete) Administrative users processing inquiries.
+     * @deny (get, list) Other users attempting to see private contact information.
+     * @principle Secure Intake Pattern: Public write, Restricted read.
+     */
+    match /contactSubmissions/{submissionId} {
+      // Note: isSignedIn() covers both 'password' and 'anonymous' providers as per requirements.
+      allow create: if isSignedIn();
+      allow get, list: if isAdmin();
+      allow update, delete: if isAdmin() && isExisting(resource);
+    }
+  }
+}

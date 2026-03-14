@@ -1,0 +1,279 @@
+{
+  "entities": {
+    "Product": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Product",
+      "type": "object",
+      "description": "Represents a valve product offered by AMCO Valves, including its specifications and associated images. This entity supports the dynamic product catalog feature.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Product entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "The common name or title of the product, e.g., 'Ball Valve'."
+        },
+        "description": {
+          "type": "string",
+          "description": "A detailed description of the product, outlining its uses, benefits, and key characteristics."
+        },
+        "features": {
+          "type": "array",
+          "description": "An array of strings describing key specifications and features of the product, such as '1 Pc', 'Screwed', 'Soft Seat', 'Floating', or 'Trunnion Mounted'.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "galleryImageIds": {
+          "type": "array",
+          "description": "References to GalleryImage entities associated with this product, used for displaying product images. (Relationship: Product N:N GalleryImage)",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "description",
+        "features"
+      ]
+    },
+    "GalleryImage": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "GalleryImage",
+      "type": "object",
+      "description": "Represents an image displayed in the photo gallery section, potentially associated with specific products. This entity supports the interactive photo gallery feature.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the GalleryImage entity."
+        },
+        "url": {
+          "type": "string",
+          "description": "The URL where the image file is hosted.",
+          "format": "uri"
+        },
+        "altText": {
+          "type": "string",
+          "description": "Alternative text for the image, crucial for accessibility and search engine optimization."
+        },
+        "caption": {
+          "type": "string",
+          "description": "An optional short caption or descriptive text displayed with the image."
+        },
+        "uploadedAt": {
+          "type": "string",
+          "description": "Timestamp indicating when the image was uploaded to the gallery.",
+          "format": "date-time"
+        },
+        "productIds": {
+          "type": "array",
+          "description": "References to Product entities that this image is associated with. An image can be relevant to multiple products or none if it's a general company image. (Relationship: GalleryImage N:N Product)",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "url",
+        "altText",
+        "uploadedAt"
+      ]
+    },
+    "Approval": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Approval",
+      "type": "object",
+      "description": "Represents a certification or approval obtained by AMCO Valves, displayed in the Approvals / Certificates section. This entity supports the certificates and approvals showcase feature.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Approval entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "The official name of the certification or approval, e.g., 'ISO 9001:2015'."
+        },
+        "description": {
+          "type": "string",
+          "description": "A brief description explaining the significance of the approval or certification."
+        },
+        "logoUrl": {
+          "type": "string",
+          "description": "The URL to the official logo or icon representing the certification body or approval.",
+          "format": "uri"
+        },
+        "documentUrl": {
+          "type": "string",
+          "description": "An optional URL to the full certificate document or report for public viewing.",
+          "format": "uri"
+        },
+        "issuedDate": {
+          "type": "string",
+          "description": "The date when the approval or certificate was issued.",
+          "format": "date-time"
+        },
+        "expiresDate": {
+          "type": "string",
+          "description": "The date when the approval or certificate is set to expire, if applicable.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "description",
+        "logoUrl",
+        "issuedDate"
+      ]
+    },
+    "ContactSubmission": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ContactSubmission",
+      "type": "object",
+      "description": "Stores details of inquiries submitted through the 'Contact Us' form. This entity addresses the user's issue by persisting form data and tracking email notification status.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the ContactSubmission entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "The full name of the person submitting the inquiry."
+        },
+        "email": {
+          "type": "string",
+          "description": "The email address provided by the submitter for follow-up communication.",
+          "format": "email"
+        },
+        "phone": {
+          "type": "string",
+          "description": "The phone number of the submitter, if provided."
+        },
+        "message": {
+          "type": "string",
+          "description": "The content of the inquiry message from the submitter."
+        },
+        "submittedAt": {
+          "type": "string",
+          "description": "Timestamp indicating when the contact form was submitted.",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "string",
+          "description": "The current processing status of the submission (e.g., 'New', 'Read', 'Replied', 'Archived')."
+        },
+        "emailSent": {
+          "type": "boolean",
+          "description": "A boolean flag indicating whether an email notification for this submission was successfully sent to the administrators."
+        },
+        "emailAttemptedAt": {
+          "type": "string",
+          "description": "Timestamp of the last attempt to send an email notification for this submission.",
+          "format": "date-time"
+        },
+        "emailError": {
+          "type": "string",
+          "description": "Any error message captured if the email notification failed to send, providing diagnostic information."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "email",
+        "message",
+        "submittedAt",
+        "status",
+        "emailSent"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/products/{productId}",
+        "definition": {
+          "entityName": "Product",
+          "schema": {
+            "$ref": "#/backend/entities/Product"
+          },
+          "description": "Collection for all product information. This data is publicly readable for the product catalog display."
+        }
+      },
+      {
+        "path": "/galleryImages/{imageId}",
+        "definition": {
+          "entityName": "GalleryImage",
+          "schema": {
+            "$ref": "#/backend/entities/GalleryImage"
+          },
+          "description": "Collection for all gallery image metadata. This data is publicly readable for the photo gallery display.",
+          "params": [
+            {
+              "name": "imageId",
+              "description": "Unique identifier for a specific gallery image."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/approvals/{approvalId}",
+        "definition": {
+          "entityName": "Approval",
+          "schema": {
+            "$ref": "#/backend/entities/Approval"
+          },
+          "description": "Collection for all certifications and approvals. This data is publicly readable for the approvals showcase.",
+          "params": [
+            {
+              "name": "approvalId",
+              "description": "Unique identifier for a specific approval or certificate."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/contactSubmissions/{submissionId}",
+        "definition": {
+          "entityName": "ContactSubmission",
+          "schema": {
+            "$ref": "#/backend/entities/ContactSubmission"
+          },
+          "description": "Collection for contact form submissions. Documents can be created by any user (anonymous or authenticated). Read and update access is restricted to administrative users only. No denormalized authorization fields are required as admin access is determined by a separate global role collection.",
+          "params": [
+            {
+              "name": "submissionId",
+              "description": "Unique identifier for a specific contact form submission."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/roles_admin/{userId}",
+        "definition": {
+          "entityName": "User",
+          "schema": {
+            "$ref": "#/backend/entities/User"
+          },
+          "description": "A top-level collection used for Database Access Control (DBAC) to define administrative users. The existence of a document in this collection with the user's UID as its ID grants administrative privileges. This design provides Authorization Independence by avoiding complex hierarchical lookups.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique Firebase Authentication UID of an administrative user."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure is designed following the core principles of Authorization Independence, Structural Segregation, and DBAC. Publicly accessible entities such as 'Product', 'GalleryImage', and 'Approval' are placed in top-level collections: '/products', '/galleryImages', and '/approvals' respectively. This approach ensures a homogeneous security posture (public read) within each collection, simplifying security rules and enabling efficient 'list' queries (QAPs). \n\nFor 'ContactSubmission', which requires specific authorization, the data is stored in '/contactSubmissions/{submissionId}'. This collection allows anonymous users to create documents (submit a form) but restricts read and update operations to administrative users only. Authorization for administrators is managed via a separate, dedicated collection: '/roles_admin/{userId}'. This strictly adheres to the DBAC principle (Database Access Control) by storing roles in the database rather than relying on custom claims. An admin is identified by the mere existence of their UID as a document ID in the '/roles_admin' collection. This design ensures Authorization Independence by completely avoiding `get()` calls in security rules to determine access to 'ContactSubmission' documents. Access is directly determined by the requesting user's UID against the '/roles_admin' collection, and not by any field or parent document in the '/contactSubmissions' collection itself. This allows for atomic operations and simplifies debugging. The fields 'emailSent', 'emailAttemptedAt', and 'emailError' within 'ContactSubmission' are explicitly included to directly address and debug the user's issue regarding email notifications."
+  }
+}
