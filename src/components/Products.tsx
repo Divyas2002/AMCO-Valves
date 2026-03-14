@@ -130,7 +130,7 @@ export function Products() {
           ))}
 
           {/* Brochure Card */}
-          <div className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(75%-1.5rem)] relative min-h-[250px] md:h-[250px] mt-8 md:mt-10">
+          <div className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(75%-1.5rem)] relative h-[290px] mt-[65px]">
             <div 
               className="h-full relative flex flex-col items-center justify-center py-8 md:py-6 px-6 md:px-10 bg-primary rounded-[1.5rem] md:rounded-[2rem] text-white shadow-xl transition-all duration-500 group overflow-hidden gap-6 md:gap-8"
             >
