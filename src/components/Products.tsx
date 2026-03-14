@@ -157,13 +157,30 @@ export function Products() {
           ))}
         </div>
 
-        <div className="text-center">
-          <Button variant="secondary" size="lg" className="rounded-xl font-bold px-8 shadow-lg hover:shadow-secondary/20 transition-all" asChild>
-            <a href="/brochure.pdf" download="AMCO_Valves_Brochure.pdf">
-              <Download className="mr-2 h-5 w-5" />
-              Download Brochure
-            </a>
-          </Button>
+        {/* Improved Brochure Layout matching requested design */}
+        <div className="max-w-6xl mx-auto mt-24">
+          <a 
+            href="/brochure.pdf" 
+            download="AMCO_Valves_Brochure.pdf"
+            className="relative block text-center py-16 px-10 bg-primary rounded-[3rem] text-white shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 hover:scale-[1.005] group overflow-hidden"
+          >
+            {/* Subtle glow effect on hover */}
+            <div className="absolute inset-0 bg-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            
+            <div className="relative z-10">
+              <h4 className="text-2xl md:text-[40px] font-bold mb-6 leading-tight group-hover:text-secondary transition-colors duration-300">
+                At AMCO, you do not have to pay a premium for Quality.
+              </h4>
+              <p className="text-white/40 text-lg md:text-xl font-medium mb-10">
+                Engineered for Excellence since 1986. Delivered with Integrity.
+              </p>
+              
+              <div className="inline-flex items-center gap-3 bg-secondary px-10 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-secondary/20 hover:bg-secondary/90 transition-all hover:translate-y-[-2px]">
+                <Download size={24} />
+                Download Full Brochure
+              </div>
+            </div>
+          </a>
         </div>
       </div>
     </section>
