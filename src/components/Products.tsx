@@ -99,7 +99,7 @@ export function Products() {
   return (
     <section id="products" className="py-12 md:py-24 bg-background">
       <div className="container mx-auto px-6">
-        <div className="text-left max-w-3xl mb-12 md:mb-16">
+        <div className="text-left max-w-3xl mb-6 md:mb-10">
           <h2 className="text-secondary font-bold text-sm uppercase tracking-widest mb-3">Product Portfolio</h2>
           <h3 className="text-3xl md:text-5xl font-bold text-primary mb-6">Our Valve Solutions</h3>
           <p className="text-foreground/70 text-sm md:text-base mb-8">
