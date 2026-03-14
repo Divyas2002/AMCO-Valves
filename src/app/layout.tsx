@@ -4,6 +4,9 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'AMCO Valves | High-Quality Industrial Valves',
   description: 'Specializing in 1 Pc, 2 Pc, and 3 Pc Ball Valves. Screwed, Socket Weld, Butt Weld, and Flanged connections available.',
+  icons: {
+    icon: '/fav.png',
+  },
 };
 
 export default function RootLayout({
