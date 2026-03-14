@@ -71,7 +71,7 @@ export function ContactUs() {
             operation: "create",
             requestResourceData: submissionData,
           });
-          errorEmitter.emit("permission-error", permissionError);
+          errorEmitter.emit('permission-error', permissionError);
         });
 
       toast({
@@ -91,7 +91,7 @@ export function ContactUs() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-white overflow-hidden">
+    <section id="contact" className="py-12 md:py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <div>

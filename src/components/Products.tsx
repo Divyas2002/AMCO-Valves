@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { Settings, Maximize, Layers, Gauge, Download } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
   Carousel, 
@@ -98,7 +97,7 @@ function ProductImageSlider({ productId, title }: { productId: string, title: st
 
 export function Products() {
   return (
-    <section id="products" className="py-16 md:py-24 bg-background">
+    <section id="products" className="py-12 md:py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="text-left max-w-3xl mb-12 md:mb-16">
           <h2 className="text-secondary font-bold text-sm uppercase tracking-widest mb-3">Product Portfolio</h2>
@@ -173,7 +172,7 @@ export function Products() {
                   : "bg-white text-primary hover:bg-secondary hover:text-white"
               )}
             >
-              <item.icon size={24} className="text-secondary md:size-8 group-hover:text-white transition-colors" />
+              <item.icon size={24} className="text-secondary group-hover:text-white transition-colors" />
               <h4 className="text-sm md:text-lg font-bold">{item.title}</h4>
               <p className={cn(
                 "text-[10px] md:text-sm group-hover:text-white/90",

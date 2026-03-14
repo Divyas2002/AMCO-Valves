@@ -31,7 +31,7 @@ export function Certificates() {
   ];
 
   return (
-    <section id="certificates" className="py-24 bg-white overflow-hidden">
+    <section id="certificates" className="py-12 md:py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <div className="max-w-2xl">

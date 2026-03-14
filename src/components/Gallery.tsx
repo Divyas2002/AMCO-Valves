@@ -16,7 +16,7 @@ export function Gallery() {
   const galleryImages = PlaceHolderImages.filter(img => img.id.startsWith("gallery-"));
 
   return (
-    <section id="gallery" className="py-24 bg-primary overflow-hidden">
+    <section id="gallery" className="py-12 md:py-24 bg-primary overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-4xl mx-auto mb-20">
           <h2 className="text-secondary font-bold text-xs uppercase tracking-[0.4em] mb-6">

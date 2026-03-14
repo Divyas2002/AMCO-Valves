@@ -2,7 +2,7 @@ import { CheckCircle2, Factory, History, ShieldCheck, Globe } from "lucide-react
 
 export function AboutUs() {
   return (
-    <section id="about" className="py-16 md:py-24 bg-white">
+    <section id="about" className="py-12 md:py-24 bg-white">
       <div className="container mx-auto px-6">
         {/* Header Section */}
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-end mb-12 md:mb-20">
@@ -27,7 +27,7 @@ export function AboutUs() {
           <div className="space-y-6 md:space-y-8">
             <div className="p-8 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-primary/5 border border-primary/10">
               <h4 className="text-xl md:text-2xl font-bold text-primary mb-4 md:mb-6 flex items-center gap-3">
-                <Factory className="text-secondary" size={24} className="md:size-7" />
+                <Factory className="text-secondary" size={24} />
                 Industry Applications
               </h4>
               <p className="text-foreground/70 text-sm md:text-base leading-relaxed">
@@ -37,7 +37,7 @@ export function AboutUs() {
             
             <div className="p-8 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-white border border-border shadow-sm">
               <h4 className="text-xl md:text-2xl font-bold text-primary mb-4 md:mb-6 flex items-center gap-3">
-                <History className="text-secondary" size={24} className="md:size-7" />
+                <History className="text-secondary" size={24} />
                 Technical Evolution
               </h4>
               <p className="text-foreground/70 text-sm md:text-base leading-relaxed">
@@ -49,7 +49,7 @@ export function AboutUs() {
           <div className="space-y-6 md:space-y-8">
             <div className="p-8 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-white border border-border shadow-sm">
               <h4 className="text-xl md:text-2xl font-bold text-primary mb-4 md:mb-6 flex items-center gap-3">
-                <ShieldCheck className="text-secondary" size={24} className="md:size-7" />
+                <ShieldCheck className="text-secondary" size={24} />
                 Quality Assurance
               </h4>
               <p className="text-foreground/70 text-sm md:text-base leading-relaxed">
@@ -59,7 +59,7 @@ export function AboutUs() {
 
             <div className="p-8 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-secondary/5 border border-secondary/10">
               <h4 className="text-xl md:text-2xl font-bold text-primary mb-4 md:mb-6 flex items-center gap-3">
-                <CheckCircle2 className="text-secondary" size={24} className="md:size-7" />
+                <CheckCircle2 className="text-secondary" size={24} />
                 Exacting Standards
               </h4>
               <p className="text-foreground/70 text-sm md:text-base leading-relaxed">
