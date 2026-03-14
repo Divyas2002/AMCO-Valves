@@ -21,7 +21,6 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Small threshold for a quick but smooth transition start
       setScrolled(window.scrollY > 40);
     };
     window.addEventListener("scroll", handleScroll);
@@ -31,17 +30,17 @@ export function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-700 ease-in-out px-6 md:px-12 border-b",
+        "fixed top-0 w-full z-50 transition-all duration-700 ease-in-out px-4 md:px-12 border-b",
         scrolled 
-          ? "py-3 bg-white/95 backdrop-blur-md shadow-md border-border" 
-          : "py-6 bg-transparent border-transparent"
+          ? "py-2 md:py-3 bg-white/95 backdrop-blur-md shadow-md border-border" 
+          : "py-4 md:py-6 bg-transparent border-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Logo Container - Transparent background as requested */}
+        {/* Logo Container */}
         <div className="transition-all duration-500 ease-in-out">
           <Link href="/" className="flex items-center group">
-            <div className="relative w-24 h-12 md:w-28 md:h-14 transition-transform group-hover:scale-105">
+            <div className="relative w-20 h-10 md:w-28 md:h-14 transition-transform group-hover:scale-105">
               <Image
                 src="/amco-logo.jpg"
                 alt="AMCO Valves Logo"
@@ -78,14 +77,14 @@ export function Navbar() {
         <div className="md:hidden">
           <button
             className={cn(
-              "p-3 rounded-xl transition-all duration-500 ease-in-out text-primary border",
+              "p-2 rounded-xl transition-all duration-500 ease-in-out text-primary border",
               scrolled 
                 ? "bg-primary/5 border-transparent" 
                 : "bg-white shadow-md border-white/20"
             )}
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
@@ -93,27 +92,27 @@ export function Navbar() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-0 top-0 bg-primary z-40 md:hidden transition-transform duration-500 ease-in-out flex flex-col items-center justify-center gap-8",
+          "fixed inset-0 top-0 bg-primary z-40 md:hidden transition-transform duration-500 ease-in-out flex flex-col items-center justify-center gap-6",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
         <button 
           onClick={() => setIsOpen(false)}
-          className="absolute top-8 right-8 text-white p-2"
+          className="absolute top-6 right-6 text-white p-2"
         >
-          <X size={32} />
+          <X size={28} />
         </button>
         {navLinks.map((link) => (
           <Link
             key={link.name}
             href={link.href}
             onClick={() => setIsOpen(false)}
-            className="text-2xl font-bold text-white/90 hover:text-secondary"
+            className="text-xl font-extrabold text-white/90 hover:text-secondary"
           >
             {link.name}
           </Link>
         ))}
-        <Button variant="secondary" size="lg" asChild className="mt-4 rounded-xl font-bold" onClick={() => setIsOpen(false)}>
+        <Button variant="secondary" size="lg" asChild className="mt-4 rounded-xl font-extrabold" onClick={() => setIsOpen(false)}>
           <Link href="#contact">Contact Us</Link>
         </Button>
       </div>
