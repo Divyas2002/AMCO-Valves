@@ -35,7 +35,7 @@ export function Navbar() {
       )}
     >
       <div className="max-w-7xl mx-auto flex items-start justify-between">
-        {/* Logo Container - Background and Shadow Removed */}
+        {/* Logo Container - Transparent background as requested */}
         <div className="transition-all duration-300">
           <Link href="/" className="flex items-center group">
             <div className="relative w-24 h-12 md:w-28 md:h-14 transition-transform group-hover:scale-105">
@@ -56,12 +56,12 @@ export function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-bold text-primary/80 transition-colors hover:text-secondary whitespace-nowrap"
+              className="text-[15px] font-bold text-primary/80 transition-colors hover:text-secondary whitespace-nowrap"
             >
               {link.name}
             </Link>
           ))}
-          <Button variant="secondary" size="sm" className="rounded-xl font-bold px-6 h-10" asChild>
+          <Button variant="secondary" size="sm" className="rounded-xl font-bold px-6 h-10 text-[15px]" asChild>
             <Link href="#contact">Get a Quote</Link>
           </Button>
         </div>
