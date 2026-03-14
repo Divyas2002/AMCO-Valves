@@ -27,6 +27,15 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent scrolling when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isOpen]);
+
   return (
     <nav
       className={cn(
@@ -77,44 +86,72 @@ export function Navbar() {
         <div className="md:hidden">
           <button
             className={cn(
-              "p-2 rounded-xl transition-all duration-500 ease-in-out text-primary border",
+              "p-2 rounded-xl transition-all duration-500 ease-in-out text-primary",
               scrolled 
-                ? "bg-primary/5 border-transparent" 
-                : "bg-white shadow-md border-white/20"
+                ? "bg-primary/5" 
+                : "bg-white shadow-md border-white/20 border"
             )}
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => setIsOpen(true)}
           >
-            {isOpen ? <X className="size-9" /> : <Menu className="size-9" />}
+            <Menu className="size-9" />
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Drawer Backdrop */}
       <div
         className={cn(
-          "fixed inset-0 top-0 bg-primary z-40 md:hidden transition-transform duration-500 ease-in-out flex flex-col items-center justify-center gap-6",
+          "fixed inset-0 bg-black/50 z-[60] transition-opacity duration-300 md:hidden",
+          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        )}
+        onClick={() => setIsOpen(false)}
+      />
+
+      {/* Mobile Drawer Content */}
+      <div
+        className={cn(
+          "fixed top-0 right-0 w-[80vw] h-full bg-white z-[70] md:hidden transition-transform duration-500 ease-in-out shadow-2xl flex flex-col",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <button 
-          onClick={() => setIsOpen(false)}
-          className="absolute top-6 right-6 text-white p-2"
-        >
-          <X className="size-10" />
-        </button>
-        {navLinks.map((link) => (
-          <Link
-            key={link.name}
-            href={link.href}
+        {/* Header with Logo and Close */}
+        <div className="p-6 flex items-center justify-between border-b border-border">
+          <div className="relative w-24 h-12">
+            <Image
+              src="/amco-logo.jpg"
+              alt="AMCO Valves Logo"
+              fill
+              className="object-contain"
+            />
+          </div>
+          <button 
             onClick={() => setIsOpen(false)}
-            className="text-xl font-extrabold text-white/90 hover:text-secondary"
+            className="text-primary p-2"
           >
-            {link.name}
-          </Link>
-        ))}
-        <Button variant="secondary" size="lg" asChild className="mt-4 rounded-xl font-extrabold" onClick={() => setIsOpen(false)}>
-          <Link href="#contact">Contact Us</Link>
-        </Button>
+            <X className="size-8" />
+          </button>
+        </div>
+
+        {/* Navigation Links */}
+        <div className="flex flex-col py-4">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              className="px-8 py-5 text-xl font-bold text-primary uppercase border-b border-border last:border-0 hover:bg-muted/30 transition-colors"
+            >
+              {link.name}
+            </Link>
+          ))}
+        </div>
+
+        {/* Footer in Drawer */}
+        <div className="mt-auto p-8 border-t border-border">
+          <Button variant="secondary" size="lg" className="w-full rounded-xl font-bold uppercase tracking-wider" asChild onClick={() => setIsOpen(false)}>
+            <Link href="#contact">Contact Us</Link>
+          </Button>
+        </div>
       </div>
     </nav>
   );
