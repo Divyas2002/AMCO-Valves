@@ -68,7 +68,7 @@ export function Hero() {
                 Explore Catalog <ArrowRight className="ml-2" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg" className="h-14 px-10 text-lg bg-white border-none text-primary hover:bg-white hover:shadow-lg transition-all rounded-xl font-bold shadow-sm" asChild>
+            <Button variant="outline" size="lg" className="h-14 px-10 text-lg bg-white border-none text-primary hover:bg-white hover:text-secondary hover:shadow-lg transition-all rounded-xl font-bold shadow-sm" asChild>
               <Link href="#about">Learn More</Link>
             </Button>
           </div>
@@ -77,7 +77,7 @@ export function Hero() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 pt-12 border-t border-black/5">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center text-secondary">
-                <Zap size={36} />
+                < Zap size={36} />
               </div>
               <div className="flex flex-col">
                 <span className="text-primary font-bold text-3xl leading-none mb-1">
