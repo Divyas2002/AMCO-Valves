@@ -116,7 +116,7 @@ export function Products() {
                 <CardTitle className="text-lg md:text-xl font-bold text-primary line-clamp-1">{product.title}</CardTitle>
                 <p className="text-secondary font-semibold text-[10px] md:text-xs line-clamp-1">{product.specs}</p>
               </CardHeader>
-              <CardContent className="p-4 md:p-6 pt-2 md:pt-3 flex-grow">
+              <CardContent className="p-4 md:p-6 pt-1 md:pt-1.5 flex-grow">
                 <ul className="space-y-1.5 md:space-y-2">
                   {product.features.map((feature, i) => (
                     <li key={i} className="flex items-center gap-2 text-foreground/70 text-[11px] md:text-xs">
