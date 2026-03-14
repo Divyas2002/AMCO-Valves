@@ -31,7 +31,7 @@ export function ContactUs() {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <div>
             <h2 className="text-primary font-bold text-sm uppercase tracking-widest mb-3">Get In Touch</h2>
-            <h3 className="text-3xl md:text-5xl font-bold text-primary mb-6">Contact AMCO Valves</h3>
+            <h3 className="text-3xl md:text-5xl font-bold text-primary mb-6">Contact</h3>
             <p className="text-lg text-foreground/70 mb-12">
               Have questions about our products or need a custom quote? Our technical support team is ready to assist you.
             </p>
