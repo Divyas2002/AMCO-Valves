@@ -133,7 +133,7 @@ export function Products() {
           {/* Brochure Card integrated into grid */}
           <div className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(75%-1.5rem)] relative">
             <div 
-              className="h-full relative flex flex-col items-center justify-center py-12 px-10 bg-primary rounded-[2rem] text-white shadow-xl transition-all duration-500 group overflow-hidden gap-8"
+              className="h-full relative flex flex-col items-center justify-center py-8 px-10 bg-primary rounded-[2rem] text-white shadow-xl transition-all duration-500 group overflow-hidden gap-6"
             >
               {/* Subtle glow effect on hover */}
               <div className="absolute inset-0 bg-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -148,7 +148,7 @@ export function Products() {
                 <a 
                   href="/brochure.pdf" 
                   download="AMCO_Valves_Brochure.pdf"
-                  className="inline-flex items-center gap-3 bg-secondary px-10 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-secondary/20 hover:bg-secondary/90 transition-all hover:translate-y-[-2px]"
+                  className="inline-flex items-center gap-3 bg-secondary px-10 py-3.5 rounded-2xl font-bold text-lg shadow-xl shadow-secondary/20 hover:bg-secondary/90 transition-all hover:translate-y-[-2px]"
                 >
                   <Download size={24} />
                   Download Full Brochure
